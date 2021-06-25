@@ -1,0 +1,547 @@
+<!DOCTYPE HTML>
+<!--
+	Template created by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Victor Lau</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="author" content="Victor Lau" />
+		<meta name="description" content="Interactive Resume; portal for the author's Data-Science Project" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/default.css" />
+
+
+	
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<span class="image avatar"><img src="images/avatar.jpg" alt="" /></span>
+					<h1 id="logo"><a href="https://victorlwh.github.io/">Victor Lau</a></h1>
+					<p>A Self-Taugt Data Science Enthusiast </p>
+				</header>
+				<nav id="nav">
+					<ul style="text-align: left;">
+						<li><a href="#1." class="active">&nbsp&nbsp&nbsp 1. Introduction</a></li>
+						<li><a href="#2.">&nbsp&nbsp&nbsp 2. Data & Methodology</a></li>
+						<li><a href="#three">&nbsp&nbsp&nbsp Data</a></li>
+						<li><a href="#four">&nbsp&nbsp&nbsp Result</a></li>
+						<li><a href="#5.">&nbsp&nbsp&nbsp 5. Appendix</a></li>
+					</ul>
+				</nav>
+				<footer>
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/victor-wh-lau/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+						<li><a href="https://github.com/victorlwh/victorlwh.github.io" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="lauwinghungvictor@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Intro -->
+							<section id="1.">
+								<div class="image main" data-position="center">
+									<img src="images/banner.jpg" alt="" />
+								</div>						
+								<div class="container">
+									<header class="major">
+										<h3 style="font-size: 2em; color:#4aa6ca; text-align: center;">Will Procrastinators Support Environmental Tax?</h3>
+										<h5 style="margin-inline: 8%; margin-bottom: -5em;">Procrastination, in <i>km</i> could measure the distance between myself and sucess; in <i>%</i>, however, might explain why we still have no solution to Global Warming.</h5>
+									</header>
+								</div>
+								<div class="container">
+									<h4 style="margin-bottom: 1.2em;">1. Introduction</h4>
+									<h5 style="font-size:1.15em">Background</h5>
+									<p>Carbon emissions are known to be the prime contributor to Global Warming. Yet, there are only <a href='https://openknowledge.worldbank.org/handle/10986/31755'>15%</a> of the countries had adopted Carbon tax initiatives as of 2019.
+										Among all the explanations, I am going to replicate my undergrad dissertation to prove people with present-bias (e.g. Procrastinators) are less likely to support environemntal tax with Python and R in this blog post.
+									</p>
+									<h5 style="font-size:1.15em">Time Discounting</h5>
+									<p>
+										To start with, we need to define what is <a href='https://en.wikipedia.org/wiki/Carbon_tax'>carbon tax</a> - by intentionally increasing the carbon cost, we discourage our over-consumption now for the future environmental benefit.
+										And like an inverstment, <a href='https://en.wikipedia.org/wiki/Time_preference'> time discounting</a> plays a role when deciding whehter to suppport a long-term tax policy.
+										Essentially, we are putting a discount rate <i>(%)</i> on cash flows we will receive in the future.
+										For example, I would prefer receiving $100 now than delaying it, as somehow, I feel like the same $100 would be of less value in a month, and it would further depreciate in a year.
+										In other words, the more distant the environmental benefit, the less it meant to us at the present. The logic could be represented by <a href='https://en.wikipedia.org/wiki/Net_present_value'>Net Present Value</a> (\(NPV\)), 
+										where \(t\) represents the period, \(T\) is the total number of periods, \(R_t\) is the cash flow at \(t\), and \(i\) is the interest rate:
+										$$NPV(i,T) = \sum_{t=1}^T \frac{R_t}{(1+i)^t}$$
+										From the equation above, we can see there are two factors that go to the opposite direction with \(NPV\), time \(t\), and the interest rate \(i\).
+										In this case, we can also interpret \(i\) as the rate at which we discount values over time, or simply how impatient we are.
+										As <a href='https://www.scholars.northwestern.edu/en/publications/individual-discount-rates-and-climate-change-is-discount-rate-ass'> Amdur et al. (2015)</a> proposed, <i><b>“individuals’ discount rate would be negatively correlated with their support for environmental taxation”</b></i>.
+										Meaning people who are more impatient are less encouraged to support a long term policy like carbon tax.
+										This is also going to be my <i><b>Hypothesis 1 (H1)</b></i>, which is principally supported in later sections, 
+										and will be seen as an evidence to employ time discounting to the subject matter.
+									</p>
+									<h5 style="font-size:1.15em">Time Preference</h5>
+									<p style="margin-bottom: 1em;">
+										While Amdur’s research was one of the first to empirically link the magnitude of time discounting with individuals’ support for environmental policy, 
+										their underlying assumption of <a href='https://en.wikipedia.org/wiki/Dynamic_inconsistency'>dynamic consistency</a> is debatable.
+									</p>
+									<p style="margin-bottom: 1em;">	
+										According to Samuelson's (1937) <a href= 'https://academic.oup.com/restud/article-abstract/4/2/155/1509754'>Discounted Utility Model</a>,
+										economists only assumed a constant discount rate \(i\) for analytical convenience.
+										(For those who are interested: a constant discount rate means the marginal rate of substitution between two deferred goods separated by a fixed lag should be stable across time.
+										Individuals with such preference would be described as having an <a href='https://en.wikipedia.org/wiki/Exponential_discounting'>exponential discounting</a> function or a time consistent preference.
+										(<a href='https://ideas.repec.org/p/nbr/nberwo/5635.html'>Laibson, 1996</a>))
+										In <a href='https://journals.sagepub.com/doi/10.1111/j.1467-9280.1995.tb00311.x'>Kirby's (1995, p.83)</a> words:
+										<blockquote>If you would like a chocolate bar next Tuesday twice as much as an apple next Wednesday, you would like them in the same ratio for successive Tuesdays and Wednesdays a month, a year, or 10 years from now.</blockquote>										
+										Instead of chocolate bar and apples, I am going to compare the rate at which an individual would be indifferent between separated financial rewards in different timeframes with a titration approach.
+									</p>
+									<h5 style="font-size:1.15em">Dynamic Inconsistency</h5>
+									<p style="margin-bottom: 1em;">
+										Unlike the classical belief on time <b>consistnet</b> preference adopted in Amdur’s research, recent studies have demonstrated dynamic inconsisteny (Fedrick et al., 2002). 
+										This phenomena suggests some people might put higher weight on the present over future utility, (<b>Present-Biased</b>); or vice versa, (<b>Future-Biased</b>) (Goda et al., 2019).
+									</p>
+									<p>
+										For an present-bias example, you realised there was an approaching deadline on Day 1, and you thought you would start the next day. But on Day 2, you were impatient about the new Netflix series and postponed your wish to work to Day 3... 
+										People with such procrastinating behaviour are explained in Behavioural Economics as we would underestimate tomorrow's \((t+1)\) pleasure in today's \((t)\) point of view.
+										Specifically, a present-biased individual would be increasingly impatient (i.e. associate higher discount rate) as an intertemporal choice approaches. 
+										From studies, such discounter would over-pursue immediate gratification, and be more likely to bear credit-card debt or have poor health status (O'Donoghue and Rabin, 2015; Meier and Sprenger, 2010; Ikeda et al., 2010). 
+									</p>	
+									<p style="margin-bottom: 1em;"> Following this rationale, I propose individuals with such time preference would care more on the short-term sacrifices in paying additional tax, and weight less on the distant benefit of climate mitigation.
+										Hence, <i><b>Hypothesis 2 (H2)</b></i> is that <i><b>“individuals with present-bias would be less likely to support environmental taxation than individuals with consistent time preference”</b></i>.
+									</p>
+								</div>
+							</section>
+
+
+						
+							<section id="2.">
+								<div class="container">
+									<h4 style="margin-bottom: 1.2em; margin-top: -2.5em;">2. Data & Methodology</h4>
+									<p>
+										To prove the two hypotheses, I am using the household survey data from the UK Understanding Society Innovation Panel released by the Economic and social Data of the UK Data Service. (Full acknowledgement in my GitHub Repository)
+										Every year since Wave 1 in 2008, same group of selected household representatives, who replicates the demographics in Britain, would be re-interviewed face-to-face or through the internet (Jäckle et al., 2019).
+										As experiment modules would change in each wave, only Wave 7 <i>(IP7)</i> in 2014 includes all three experiments that are related to the research purposes.
+										Among the total of 2,826 participants aged 16 or above in <i>IP7</i>, only 495 of them had participated in all the relevant experiment modules.
+									</p>
+									<h5 style="font-size:1.15em">Methodology</h5>
+									<p style="margin-bottom: 1em;">										
+										The questionare results are categorised into two datasets.
+										Hence, I will firstly focus on classifying data from different experiment modules in <i>g_indresp_ip</i>, and converting them into meaningful variables with Python.
+										Then I will identify those demographics information in <i>g_indall_ip</i> that would be of value.
+										Once all variables are created, I will combine them into one dataframe before running the Ordered Probit regression model in R.
+									</p>
+									<p style="margin-bottom: 1em;">
+										The following packages are imported to set up the Python environemnt:
+									</p>
+									<pre>
+										<code>															
+In [1]: 
+
+# data manipulation	
+import pandas as pd		
+import numpy as np		
+import re
+import functools
+	
+# visualisation
+import seaborn as sns
+import matplotlib.pyplot as plt
+%matplotlib inline
+										</code>
+									</pre>
+									<h5 style="font-size:1.15em">Data Description</h5>
+									<p style="margin-bottom: 1em;">
+										To avoid confusion, I have only downloaded results from experiment modules that would be of use in a .xls file. The file is then imported as a Python Pandas dataframe with the first column "pidp", which is uniquely representing each participant as the index.
+									</p>
+									<pre>
+										<code>		
+In [2]:
+
+# create a panda dataframe by reading the csv file with the first column as index
+g_indresp = pd.read_excel("g_indresp_ip.xls", index_col = 0)
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										As shown below, the variable series <i>g_choice</i> are results of the "Time and Risk Preference" module to determine interviewees' time preference and time discount rate; 
+										whereas the <i>g_envtax</i> series is from the "Environmental Tax" module to check if the interviewee would support environmental tax; 
+										lastly, the <i>g_envhabit</i> is for controlling the interviewees' attitude on enviornmental behaviour from the "Environmental Behaviour and Attitudes" module.
+									</p>
+									<pre>
+										<code>		
+In [3]:
+
+# print column values
+print(g_indresp.columns.values)
+
+Out [3]:
+
+['g_choice01', 'g_choice02', 'g_choice03', 'g_choice04', 'g_choice05',
+ 'g_choice06', 'g_choice07', 'g_choice08', 'g_choice09', 'g_choice10',
+ 'g_choice11', 'g_choice12', 'g_choice13', 'g_choice14', 'g_choice15',
+ 'g_choice16', 'g_choice17', 'g_choice18', 'g_choice19', 'g_choice20',
+ 'g_choice21', 'g_choice22', 'g_choice23', 'g_choice24', 'g_choice25',
+ 'g_choice26', 'g_choice27', 'g_choice28', 'g_choice29', 'g_choice30',
+ 'g_choice31', 'g_choice32', 'g_choice33', 'g_choice34', 'g_choice35',
+ 'g_choice36', 'g_choice37', 'g_choice38', 'g_choice39', 'g_choice40',
+ 'g_choice41', 'g_choice42', 'g_choice43', 'g_choice44', 'g_choice45',
+ 'g_choice46', 'g_choice47', 'g_choice48', 'g_choice49', 'g_choice50',
+ 'g_choice51', 'g_choice52', 'g_choice53', 'g_choice54', 'g_choice55',
+ 'g_choice56', 'g_choice57', 'g_choice58', 'g_choice59', 'g_choice60',
+ 'g_choice61', 'g_choice62', 'g_choice63', 'g_choice64', 'g_choice65',
+ 'g_choice66', 'g_choice67', 'g_choice68', 'g_choice69', 'g_choice70',
+ 'g_choice71', 'g_choice72', 'g_envtax_a', 'g_envtax_b', 'g_envtax_c',
+ 'g_envtax_d', 'g_envtax_e', 'g_envtax_f', 'g_envtax_g', 'g_envtax_h',
+ 'g_envhabit1', 'g_envhabit2', 'g_envhabit3', 'g_envhabit4', 'g_envhabit5',
+ 'g_envhabit6', 'g_envhabit7', 'g_envhabit8', 'g_envhabit9']
+										</code>
+									</pre>
+									<h5 style="font-size:1.15em">Environmental Taxation</h5>
+									<p>
+										In the “Environmental Tax” module, respondents were randomly assigned with one of eight questions, 
+										consisted with four different settings, each with or without an additional common treatment (i.e. 4 settings x (with + without treatment) = 8 Questions from a to h).
+										Hence, a new dataframe <i>envtax_table</i> is created by extracting those related columns from <i>g_indresp</i>. 
+									</p>	
+									<p style="margin-bottom: 1em;">
+										From the 15 samples below, we can see once respondents were assigned with one of the eight questions, 
+										they would be choosing their degrees of Willingness To Pay environmental tax (hereafter WTP), while the rest of the seven questions would be marked as "inapplicable":							
+									</p>
+									<pre>
+										<code>
+In [6]:
+
+# filter columns with name containing "g_envtax_" to create a new dataframe
+envtax_table = g_indresp.filter(regex = 'g_envtax_', axis = 1)
+
+# randomly sample 15 rows from envtax
+envtax_table.sample(10)
+
+Out [6]:
+              g_envtax_a	  g_envtax_b	  g_envtax_c	  g_envtax_d	  g_envtax_e	  g_envtax_f	  g_envtax_g	  g_envtax_h
+pidp								
+1700103367	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	not at all      inapplicable
+                                                                                                                willing
+1700425007	inapplicable	inapplicable	inapplicable	inapplicable	not at all      inapplicable	inapplicable	inapplicable
+                                                                                willing	       
+1700950651	not very        inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable 
+                willing	
+1701061487	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable
+1726302446	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	not very        inapplicable
+                                                                                                                willing	
+1700792891	proxy	        proxy	        proxy		    proxy	    	proxy	    	proxy	    	proxy	    	proxy
+1732483652	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable
+1700369251	inapplicable	inapplicable	inapplicable	not at all      inapplicable	inapplicable	inapplicable	inapplicable 
+                                                                willing	  
+1700503207	inapplicable	very willing	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable
+1700180211	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	not very willing
+
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										By creating a pivot table, the aggregate number of answers in each question are counted. 
+										The majority are choosing "Faily Willing", followed by "Not Very Willing" in most qustions.
+										As expected, answers for "Very Willing" spiked when participants were recieving the common treatment in question b, d, f, h, which will be controlled in the next session.
+									</p>
+									<pre>
+										<code>
+In [7]:
+
+# create a new empty panda dataframe
+pivot_tax = pd.DataFrame()
+
+# for each column in envtax_table, create a pivot table and append it to the newly created dataframe
+for col in envtax_table:
+    pivot = envtax_table.pivot_table(columns=col, aggfunc="size",fill_value=0)
+    pivot_tax[col] = pivot
+
+	# print out the dataframe to count the unique value in each column
+print(pivot_tax)
+
+Out [7]:
+
+                    g_envtax_a  g_envtax_b  g_envtax_c  g_envtax_d  \
+g_envtax_a                                                            
+don't know                   5          10           4          15   
+fairly willing              77          98          69          97   
+inapplicable              2098        2105        2133        2099   
+not at all willing          68          15          49          30   
+not very willing            77          41          71          46   
+proxy                       76          76          76          76   
+very willing                12          67           8          49   
+
+                    g_envtax_e  g_envtax_f  g_envtax_g  g_envtax_h  
+g_envtax_a                                                      
+don't know                   5          10           2          14  
+fairly willing              80          84          93          96  
+inapplicable              2115        2104        2092        2105  
+not at all willing          58          50          60          21  
+not very willing            63          53          72          35  
+proxy                       76          76          76          76  
+very willing                13          32          14          66  
+										</code>
+									</pre>
+
+									<p style="margin-bottom: 1em;">										
+										With answers from different questions, it will be the most ideal to consider each independtly if data was sufficient.
+										However, for simplicity and preserving the staistical power given our small sample size, 
+										I am going to disregard the differencecs in settings, which are unrealted to time discounting, 
+										and treat all questions as if they were the baseline with (b) or without treatemnt (a).
+										Although framing effects are inevitable, I have echoed the experiment designer, Fairbrother (2017) to prove such adverse effect is minmial on our results in Appendix A2.
+										Hence, I am going to consolidate the questions into a new variable <i>envtax</i>.
+									</p>
+									<pre>
+										<code>
+In [8]:
+	
+# define a function to check in the inputed row from the first column to the last, 
+# when would the cell value deviate from "inapplicable" so to return that value 
+def to_the_right(col):
+    value = "inapplicable"
+    col_index = 0
+    while value =="inapplicable" and col_index < 8:
+        value = col[col_index]
+        col_index += 1
+    return value
+
+# define a function to apply to_the_right() to every row in the inputed dataframe
+def clean(df):
+    df.loc[:,"envtax"] = df.apply(lambda col: to_the_right(col), axis = 1)
+
+# run clean() on envtax_table
+clean(envtax_table)
+
+# sample envtax_table 
+envtax_table.sample(10)
+
+Out [8]:
+              g_envtax_a	  g_envtax_b	  g_envtax_c	  g_envtax_d	  g_envtax_e   	  g_envtax_f	  g_envtax_g	  g_envtax_h	     envtax
+pidp									
+1700910531	inapplicable	very willing	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	very willing
+1701568775	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	not very        not very
+                                                                                                                                willing	        willing
+1700711971	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	not at all     	inapplicable	inapplicable	not at all 
+                                                                                                willing                                         willing
+1720998486	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	not at all    	not at all 
+                                                                                                                                willing         willing
+1726717246	inapplicable	inapplicable	not at all    	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	not at all 
+                                                willing                                                                                         willing
+1700819475	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	fairly willing	inapplicable	fairly willing
+1700442023	not very     	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	not very 
+                willing                                                                                                                         willing
+1701483087	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	fairly willing	fairly willing
+1700559651	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable
+1721290886	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										Unfortunately, not every interviewees had joint the "Environemental Tax" module.
+										Absentees or participants with inaudible answer, e.g. "Don't know", would be dropped from <i>envtax_table</i>.								
+									</p>
+									<pre>
+										<code>
+In [9]:
+
+# drop rows if the value in envtax is not recognise in the list 
+envtax_table.drop(envtax_table[~envtax_table.envtax.isin(["not at all willing", "not very willing", "fairly willing", "very willing"])].index , inplace=True)
+
+# call out the pivot table to count the unique value in the column
+envtax_table.pivot_table(columns="envtax", aggfunc="size",fill_value=0)
+
+Out [9]:
+envtax
+fairly willing        693
+not at all willing    351
+not very willing      458
+very willing          261
+dtype: int64
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										The final step before finalising the depent variable, <i>envtax</i> is to transform the categorical text data into categorical numerical data as below:
+										<ul>
+											<li>Very willing (= 4)</li>
+											<li>Fairly Willing (= 3)</li>
+											<li>Not Very Willing (= 2)</li>
+											<li>Not at All Willing (= 1)</li>
+										</ul>	
+									</p>
+									<pre>
+										<code>
+In [10]:
+
+# creating a dictionary to assign numerically ordered values to the categorical answers
+encoding = {"envtax": {"very willing": 4, "fairly willing": 3, "not very willing": 2, "not at all willing": 1}}
+# replacing the string with the corresponding numeric values 
+envtax_table = envtax_table.replace(encoding)									
+										</code>
+									</pre>
+									<h5 style="font-size:1.15em">Treatment</h5>
+									<p>
+										As mentioned, a random treatment was imposed in the “Environmental Tax” module which introduced an additional condition at the end of the question for subjects’ WTP (i.e. b, d, f, h):
+										<blockquote>…, if the government reduced other taxes you pay by the same amount?</blockquote>
+										For simplicity, treatment will be seen as a direct reduction on proximate financial costs, which as mentioned, has motivated more participants to be more willing to pay environemtnal tax.
+									</p>
+									<p style="margin-bottom: 1em;">
+										A dummy variable treatment is created with value = 1 for subjects who had received the treatment in question b, d, f, h; and = 0 otherwise.
+									</p>	
+									<pre>
+										<code>
+In [11]:
+
+# define a funtion to count in the inputed row, 
+# how many columns from left to right have value "inapplicable" until a deviation is detected								
+def treat(col):
+    value = "inapplicable"
+    count = 0
+    col_index = 0
+    treat = []
+    while value == "inapplicable" and col_index < 9:
+        value = col[col_index]
+        count += 1
+        col_index += 1
+    if count == 2 or count == 4 or count == 6 or count == 8:
+        treatment = 1
+    elif count == 9:
+        treatment = ""
+    else:
+        treatment = 0
+    return treatment
+
+# define a function to apply treat to every row in the inputed dataframe
+def treatment(df):
+    df.loc[:, "treatment"] = df.apply(lambda col: treat(col), axis = 1)	
+
+# run treatment() on evtax_table
+treatment(envtax_table)
+
+# sample envtax_table 
+envtax_table.sample(10)
+
+Out [11]:
+              g_envtax_a	  g_envtax_b	  g_envtax_c	  g_envtax_d	  g_envtax_e	  g_envtax_f	  g_envtax_g	  g_envtax_h	envtax	treatment
+pidp										
+1701842807	not very     	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	2	0
+                willing
+1719924092	inapplicable	inapplicable	fairly willing	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	3	0
+1700728967	inapplicable	inapplicable	inapplicable	inapplicable	not very    	inapplicable	inapplicable	inapplicable	2	0
+                                                                                willing
+1726560926	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	fairly willing	3	1
+1719924132	inapplicable	inapplicable	fairly willing	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	3	0
+1700894891	inapplicable	very willing	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	4	1
+1713668132	inapplicable	inapplicable	inapplicable	inapplicable	not at all  	inapplicable	inapplicable	inapplicable	1	0
+                                                                                willing
+1721596886	inapplicable	inapplicable	inapplicable	inapplicable	not at all  	inapplicable	inapplicable	inapplicable	1	0
+                                                                                willing
+1700499127	inapplicable	inapplicable	inapplicable	fairly willing	inapplicable	inapplicable	inapplicable	inapplicable	3	1
+1717496452	inapplicable	inapplicable	inapplicable	inapplicable	not at all  	inapplicable	inapplicable	inapplicable	1	0
+                                                                                willing
+										</code>
+									</pre>
+								</div>
+								
+									
+							</section>
+
+						
+							<section id="5.">
+								<div class="container">
+									<h4 style="margin-bottom: 1.2em; margin-top: -2.5em;">5. Appendix</h4>
+									<h5>Appendix A1: Full Question Versions in “Environmental Tax” Module</h5>
+									<ol>
+										<li>How willing would you be to pay higher taxes in order to protect the environment? </li>
+										<li>How willing would you be to pay higher taxes in order to protect the environment, <b>if the government reduced other taxes you pay by the same amount</b>?</li>
+										<li>How willing would you be to pay higher taxes on things you buy that pollute the environment?</li>
+										<li>How willing would you be to pay higher taxes on things you buy that pollute the environment, <b>if the government reduced other taxes you pay by the same amount</b>?</li>
+										<li>How willing would you be to pay higher taxes, if the government spent the extra money on protecting the environment?</li>
+										<li>How willing would you be to pay higher taxes, if the government spent the extra money on protecting the environment <b> and reduced other taxes you pay by the same amount </b>?</li>
+										<li>How willing would you be to pay higher taxes, if the government promised it would spend the extra money on protecting the environment?</li>
+										<li>How willing would you be to pay higher taxes, if the government promised it would spend the extra money on protecting the environment <b> and reduce other taxes you pay by the same amount?</b></li>
+									</ol>
+									<h5>Appendix A2: Preventative Measures for constructing Dependent Variable</h5>
+									<p style="margin-bottom: 1em;">
+										As the original sample is already limited (N = ??), if answers from each setting were considered separately in five groups, the statistical power would be reduced and risk jeopardising the chance and accuracy of detecting the true result (Button, 2013). 
+										Regrettably, the difference in settings would be neglected as if respondents were all asked by either the baseline question (a) or baseline with an additional treatment (b). 
+										This is also approved by the experiment designer, Fairbrother (2017), that no significant deviations was found between baseline (a & b) and other qusetion versions (c & d & e & f & g & h).
+									</p>
+									<pre>
+										<code>
+In [6]:
+
+# 2-way Wald Test to check H0: b = d = f
+
+Out [6]:
+
+
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">	
+										Moreover, the effect of treatment in the Primary sample were tested to be homogenous in most settings,
+										except in (g), conforming to Fairbrother (2017)’s conclusion that political distrust undermines tax compensation. 
+										Therefore, all subjects in setting (h) will be considered as without treatment (i.e. (g) = (h)).
+									</p>
+									<pre>
+										<code>
+In [6]:
+
+# 2-way Wald Test to check H0: a = c = e = g = h
+
+Out [6]:
+
+
+										</code>
+									</pre>
+									
+								</div>
+							</section>
+
+						<!-- 
+							<section id="four">
+								<div class="container">
+									<h3>Contact Me</h3>
+									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" class="primary" value="Send Message" /></li>
+													<li><input type="reset" value="Reset Form" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</div>
+							</section>
+						-->
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>Design template: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+			<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+			<script src="assets/js/highlight.min.js"></script>
+			<script>hljs.highlightAll();</script>
+	</body>
+</html>
