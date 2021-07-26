@@ -26,20 +26,21 @@
 					<h1 id="logo"><a href="https://victorlwh.github.io/">Victor Lau</a></h1>
 					<p>A Self-Taugt Data Science Enthusiast </p>
 				</header>
-				<nav id="nav">
+				<nav id="nav" style="margin-bottom: -2em;">
 					<ul style="text-align: left;">
 						<li><a href="#1." class="active">&nbsp&nbsp&nbsp 1. Introduction</a></li>
 						<li><a href="#2.">&nbsp&nbsp&nbsp 2. Data & Methodology</a></li>
-						<li><a href="#three">&nbsp&nbsp&nbsp Data</a></li>
-						<li><a href="#four">&nbsp&nbsp&nbsp Result</a></li>
-						<li><a href="#5.">&nbsp&nbsp&nbsp 5. Appendix</a></li>
+						<li><a href="#3.">&nbsp&nbsp&nbsp 3. Visualisation & Summary</a></li>
+						<li><a href="#4.">&nbsp&nbsp&nbsp 4. Results</a></li>
+						<li><a href="#5.">&nbsp&nbsp&nbsp 5. Conclusion</a></li>
+						<li><a href="#6.">&nbsp&nbsp&nbsp 6. Appendix</a></li>
 					</ul>
 				</nav>
 				<footer>
 					<ul class="icons">
 						<li><a href="https://www.linkedin.com/in/victor-wh-lau/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
 						<li><a href="https://github.com/victorlwh/victorlwh.github.io" class="icon brands fa-github"><span class="label">Github</span></a></li>
-						<li><a href="lauwinghungvictor@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						<li><a href="mailto: lauwinghungvictor@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 					</ul>
 				</footer>
 			</section>
@@ -58,29 +59,29 @@
 								<div class="container">
 									<header class="major">
 										<h3 style="font-size: 2em; color:#4aa6ca; text-align: center;">Will Procrastinators Support Environmental Tax?</h3>
-										<h5 style="margin-inline: 8%; margin-bottom: -5em;">Procrastination, in <i>km</i> could measure the distance between myself and sucess; in <i>%</i>, however, might explain why we still have no solution to Global Warming.</h5>
+										<h5 style="margin-inline: 8%; margin-bottom: -5em;">Procrastination, in <i>km</i> could measure the distance between myself and success; in <i>%</i>, however, might explain why we still have no solution to Global Warming.</h5>
 									</header>
 								</div>
 								<div class="container">
 									<h4 style="margin-bottom: 1.2em;">1. Introduction</h4>
 									<h5 style="font-size:1.15em">Background</h5>
 									<p>Carbon emissions are known to be the prime contributor to Global Warming. Yet, there are only <a href='https://openknowledge.worldbank.org/handle/10986/31755'>15%</a> of the countries had adopted Carbon tax initiatives as of 2019.
-										Among all the explanations, I am going to replicate my undergrad dissertation to prove people with present-bias (e.g. Procrastinators) are less likely to support environemntal tax with Python and R in this blog post.
+										Among all the explanations, I am going to replicate my undergrad dissertation to prove people with present-bias (e.g. Procrastinators) are less likely to support environmental tax with <b>Python</b> and <b>R</b> in this blog post.
 									</p>
 									<h5 style="font-size:1.15em">Time Discounting</h5>
 									<p>
-										To start with, we need to define what is <a href='https://en.wikipedia.org/wiki/Carbon_tax'>carbon tax</a> - by intentionally increasing the carbon cost, we discourage our over-consumption now for the future environmental benefit.
-										And like an inverstment, <a href='https://en.wikipedia.org/wiki/Time_preference'> time discounting</a> plays a role when deciding whehter to suppport a long-term tax policy.
+										To start with, we need to define what is <a href='https://en.wikipedia.org/wiki/Carbon_tax'>carbon tax</a> - by intentionally increasing the carbon cost, we discourage our short-term over-consumption for the long-term environmental benefit.
+										And like an investment, <a href='https://en.wikipedia.org/wiki/Time_preference'> time discounting</a> plays a role when deciding whether to support a long-term tax policy.
 										Essentially, we are putting a discount rate <i>(%)</i> on cash flows we will receive in the future.
 										For example, I would prefer receiving $100 now than delaying it, as somehow, I feel like the same $100 would be of less value in a month, and it would further depreciate in a year.
 										In other words, the more distant the environmental benefit, the less it meant to us at the present. The logic could be represented by <a href='https://en.wikipedia.org/wiki/Net_present_value'>Net Present Value</a> (\(NPV\)), 
 										where \(t\) represents the period, \(T\) is the total number of periods, \(R_t\) is the cash flow at \(t\), and \(i\) is the interest rate:
 										$$NPV(i,T) = \sum_{t=1}^T \frac{R_t}{(1+i)^t}$$
-										From the equation above, we can see there are two factors that go to the opposite direction with \(NPV\), time \(t\), and the interest rate \(i\).
+										From the equation above, we can see two factors, time \(t\) and interest rate \(i\) that are negatively correlated with \(NPV\).
 										In this case, we can also interpret \(i\) as the rate at which we discount values over time, or simply how impatient we are.
 										As <a href='https://www.scholars.northwestern.edu/en/publications/individual-discount-rates-and-climate-change-is-discount-rate-ass'> Amdur et al. (2015)</a> proposed, <i><b>“individuals’ discount rate would be negatively correlated with their support for environmental taxation”</b></i>.
 										Meaning people who are more impatient are less encouraged to support a long term policy like carbon tax.
-										This is also going to be my <i><b>Hypothesis 1 (H1)</b></i>, which is principally supported in later sections, 
+										This is also going to be my <i><b>Hypothesis 1 (H1)</b></i>, which is insignificantly supported in later sections, 
 										and will be seen as an evidence to employ time discounting to the subject matter.
 									</p>
 									<h5 style="font-size:1.15em">Time Preference</h5>
@@ -100,16 +101,16 @@
 									</p>
 									<h5 style="font-size:1.15em">Dynamic Inconsistency</h5>
 									<p style="margin-bottom: 1em;">
-										Unlike the classical belief on time <b>consistnet</b> preference adopted in Amdur’s research, recent studies have demonstrated dynamic inconsisteny (Fedrick et al., 2002). 
+										Unlike the classical belief on time <b>consistent</b> preference adopted in Amdur’s research, recent studies have demonstrated dynamic inconsistency (Fedrick et al., 2002). 
 										This phenomena suggests some people might put higher weight on the present over future utility, (<b>Present-Biased</b>); or vice versa, (<b>Future-Biased</b>) (Goda et al., 2019).
 									</p>
 									<p>
-										For an present-bias example, you realised there was an approaching deadline on Day 1, and you thought you would start the next day. But on Day 2, you were impatient about the new Netflix series and postponed your wish to work to Day 3... 
-										People with such procrastinating behaviour are explained in Behavioural Economics as we would underestimate tomorrow's \((t+1)\) pleasure in today's \((t)\) point of view.
+										For a present-bias example, you realised there was an approaching deadline on Day 1, and you thought you would start on the next day so you could enjoy the new Netflix Series for now. But on Day 2, you were impatient about the next episode and postponed your wish to work to Day 3... until the deadline.
+										People with such procrastinating behaviour are explained in Behavioural Economics by how we would underestimate tomorrow's \((t+1)\) pleasure in today's \((t)\) point of view.
 										Specifically, a present-biased individual would be increasingly impatient (i.e. associate higher discount rate) as an intertemporal choice approaches. 
 										From studies, such discounter would over-pursue immediate gratification, and be more likely to bear credit-card debt or have poor health status (O'Donoghue and Rabin, 2015; Meier and Sprenger, 2010; Ikeda et al., 2010). 
 									</p>	
-									<p style="margin-bottom: 1em;"> Following this rationale, I propose individuals with such time preference would care more on the short-term sacrifices in paying additional tax, and weight less on the distant benefit of climate mitigation.
+									<p style="margin-bottom: 1em;"> Following this rationale, I propose individuals with such time preference would care more about the short-term sacrifices in paying additional tax, and weight less on the distant benefit of climate mitigation.
 										Hence, <i><b>Hypothesis 2 (H2)</b></i> is that <i><b>“individuals with present-bias would be less likely to support environmental taxation than individuals with consistent time preference”</b></i>.
 									</p>
 								</div>
@@ -127,14 +128,14 @@
 										Among the total of 2,826 participants aged 16 or above in <i>IP7</i>, only 495 of them had participated in all the relevant experiment modules.
 									</p>
 									<h5 style="font-size:1.15em">Methodology</h5>
-									<p style="margin-bottom: 1em;">										
-										The questionare results are categorised into two datasets.
-										Hence, I will firstly focus on classifying data from different experiment modules in <i>g_indresp_ip</i>, and converting them into meaningful variables with Python.
+									<p>										
+										The questionnaire results are categorised into two datasets.
+										Hence, I will firstly focus on classifying data from different experiment modules in <i>g_indresp_ip</i>, and converting them into meaningful variables with <b>Python</b>.
 										Then I will identify those demographics information in <i>g_indall_ip</i> that would be of value.
-										Once all variables are created, I will combine them into one dataframe before running the Ordered Probit regression model in R.
+										Once all variables are created, I will combine them into one dataframe before running the Ordered regression model in R.
 									</p>
 									<p style="margin-bottom: 1em;">
-										The following packages are imported to set up the Python environemnt:
+										The following packages are imported to set up the Python environment:
 									</p>
 									<pre>
 										<code>															
@@ -145,6 +146,7 @@ import pandas as pd
 import numpy as np		
 import re
 import functools
+from sklearn.preprocessing import StandardScaler
 	
 # visualisation
 import seaborn as sns
@@ -154,11 +156,11 @@ import matplotlib.pyplot as plt
 									</pre>
 									<h5 style="font-size:1.15em">Data Description</h5>
 									<p style="margin-bottom: 1em;">
-										To avoid confusion, I have only downloaded results from experiment modules that would be of use in a .xls file. The file is then imported as a Python Pandas dataframe with the first column "pidp", which is uniquely representing each participant as the index.
+										To avoid confusion, I have only downloaded results from experiment modules that would be of use in a .xls file. The file is then imported as a <b>Python</b> Pandas dataframe with the first column "pidp", which is uniquely representing each participant as the index.
 									</p>
 									<pre>
 										<code>		
-In [2]:
+In [3]:
 
 # create a panda dataframe by reading the csv file with the first column as index
 g_indresp = pd.read_excel("g_indresp_ip.xls", index_col = 0)
@@ -167,16 +169,16 @@ g_indresp = pd.read_excel("g_indresp_ip.xls", index_col = 0)
 									<p style="margin-bottom: 1em;">
 										As shown below, the variable series <i>g_choice</i> are results of the "Time and Risk Preference" module to determine interviewees' time preference and time discount rate; 
 										whereas the <i>g_envtax</i> series is from the "Environmental Tax" module to check if the interviewee would support environmental tax; 
-										lastly, the <i>g_envhabit</i> is for controlling the interviewees' attitude on enviornmental behaviour from the "Environmental Behaviour and Attitudes" module.
+										lastly, the <i>g_envhabit</i> is for controlling the interviewees' attitude on environmental behaviour from the "Environmental Behaviour and Attitudes" module.
 									</p>
 									<pre>
 										<code>		
-In [3]:
+In [4]:
 
 # print column values
 print(g_indresp.columns.values)
 
-Out [3]:
+Out [4]:
 
 ['g_choice01', 'g_choice02', 'g_choice03', 'g_choice04', 'g_choice05',
  'g_choice06', 'g_choice07', 'g_choice08', 'g_choice09', 'g_choice10',
@@ -198,27 +200,32 @@ Out [3]:
  'g_envhabit6', 'g_envhabit7', 'g_envhabit8', 'g_envhabit9']
 										</code>
 									</pre>
-									<h5 style="font-size:1.15em">Environmental Taxation</h5>
+									<h5 style="font-size:1.15em">Dependent Variable - Environmental Taxation</h5>
 									<p>
 										In the “Environmental Tax” module, respondents were randomly assigned with one of eight questions, 
 										consisted with four different settings, each with or without an additional common treatment (i.e. 4 settings x (with + without treatment) = 8 Questions from a to h).
+										While the treatment is going to be intuitive, the four question settings were unrelated to time discounting.
+										They will be disregarded as if all subjects were asked by the baseline question:
+										<blockquote>How willing would you be to pay higher taxes in order to protect the environment?</blockquote>
+									</p>
+									<p>	
 										Hence, a new dataframe <i>envtax_table</i> is created by extracting those related columns from <i>g_indresp</i>. 
 									</p>	
 									<p style="margin-bottom: 1em;">
-										From the 15 samples below, we can see once respondents were assigned with one of the eight questions, 
-										they would be choosing their degrees of Willingness To Pay environmental tax (hereafter WTP), while the rest of the seven questions would be marked as "inapplicable":							
+										From the 10 samples below, we can see once respondents were assigned with one of the eight questions, 
+										they would be choosing their degree of Willingness To Pay environmental tax, while the rest of the seven questions would be marked as "inapplicable":							
 									</p>
 									<pre>
 										<code>
-In [6]:
+In [5]:
 
 # filter columns with name containing "g_envtax_" to create a new dataframe
 envtax_table = g_indresp.filter(regex = 'g_envtax_', axis = 1)
 
-# randomly sample 15 rows from envtax
+# take ten random samples from envtax
 envtax_table.sample(10)
 
-Out [6]:
+Out [5]:
               g_envtax_a	  g_envtax_b	  g_envtax_c	  g_envtax_d	  g_envtax_e	  g_envtax_f	  g_envtax_g	  g_envtax_h
 pidp								
 1700103367	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	not at all      inapplicable
@@ -241,12 +248,12 @@ pidp
 									</pre>
 									<p style="margin-bottom: 1em;">
 										By creating a pivot table, the aggregate number of answers in each question are counted. 
-										The majority are choosing "Faily Willing", followed by "Not Very Willing" in most qustions.
-										As expected, answers for "Very Willing" spiked when participants were recieving the common treatment in question b, d, f, h, which will be controlled in the next session.
+										The majority are choosing "Fairly Willing", followed by "Not Very Willing" in most questions.
+										As expected, positive answers spiked when participants were receiving the common treatment in question b, d, f, h, which will be controlled in the next session.
 									</p>
 									<pre>
 										<code>
-In [7]:
+In [6]:
 
 # create a new empty panda dataframe
 pivot_tax = pd.DataFrame()
@@ -256,10 +263,10 @@ for col in envtax_table:
     pivot = envtax_table.pivot_table(columns=col, aggfunc="size",fill_value=0)
     pivot_tax[col] = pivot
 
-	# print out the dataframe to count the unique value in each column
+# print out the dataframe to count the unique value in each column
 print(pivot_tax)
 
-Out [7]:
+Out [6]:
 
                     g_envtax_a  g_envtax_b  g_envtax_c  g_envtax_d  \
 g_envtax_a                                                            
@@ -284,38 +291,38 @@ very willing                13          32          14          66
 									</pre>
 
 									<p style="margin-bottom: 1em;">										
-										With answers from different questions, it will be the most ideal to consider each independtly if data was sufficient.
-										However, for simplicity and preserving the staistical power given our small sample size, 
-										I am going to disregard the differencecs in settings, which are unrealted to time discounting, 
-										and treat all questions as if they were the baseline with (b) or without treatemnt (a).
-										Although framing effects are inevitable, I have echoed the experiment designer, Fairbrother (2017) to prove such adverse effect is minmial on our results in Appendix A2.
+										With answers from different questions, it will be the most ideal to consider each independently if data was sufficient.
+										However, for preserving the statistical power given our small sample size, 
+										I am going to disregard the differences in settings, which are unrelated to time discounting, 
+										and treat all questions as if they were the baseline with (b) or without treatment (a).
+										Although framing effects are inevitable, the experiment designer, Fairbrother (2017) had proved such adverse effect is minimal in his publication.
 										Hence, I am going to consolidate the questions into a new variable <i>envtax</i>.
 									</p>
 									<pre>
 										<code>
-In [8]:
+In [7]:
 	
-# define a function to check in the inputed row from the first column to the last, 
+# define a function to check in the inputted row from the first column to the last, 
 # when would the cell value deviate from "inapplicable" so to return that value 
 def to_the_right(col):
     value = "inapplicable"
     col_index = 0
-    while value =="inapplicable" and col_index < 8:
+    while value == "inapplicable" and col_index < 8:
         value = col[col_index]
         col_index += 1
     return value
 
-# define a function to apply to_the_right() to every row in the inputed dataframe
+# define a function to apply to_the_right() to every row in the inputted dataframe
 def clean(df):
     df.loc[:,"envtax"] = df.apply(lambda col: to_the_right(col), axis = 1)
 
 # run clean() on envtax_table
 clean(envtax_table)
 
-# sample envtax_table 
+# take ten random samples from envtax_table 
 envtax_table.sample(10)
 
-Out [8]:
+Out [7]:
               g_envtax_a	  g_envtax_b	  g_envtax_c	  g_envtax_d	  g_envtax_e   	  g_envtax_f	  g_envtax_g	  g_envtax_h	     envtax
 pidp									
 1700910531	inapplicable	very willing	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	very willing
@@ -336,12 +343,12 @@ pidp
 										</code>
 									</pre>
 									<p style="margin-bottom: 1em;">
-										Unfortunately, not every interviewees had joint the "Environemental Tax" module.
+										Unfortunately, not every interviewees had joint the "Environmental Tax" module.
 										Absentees or participants with inaudible answer, e.g. "Don't know", would be dropped from <i>envtax_table</i>.								
 									</p>
 									<pre>
 										<code>
-In [9]:
+In [8]:
 
 # drop rows if the value in envtax is not recognise in the list 
 envtax_table.drop(envtax_table[~envtax_table.envtax.isin(["not at all willing", "not very willing", "fairly willing", "very willing"])].index , inplace=True)
@@ -349,7 +356,7 @@ envtax_table.drop(envtax_table[~envtax_table.envtax.isin(["not at all willing", 
 # call out the pivot table to count the unique value in the column
 envtax_table.pivot_table(columns="envtax", aggfunc="size",fill_value=0)
 
-Out [9]:
+Out [8]:
 envtax
 fairly willing        693
 not at all willing    351
@@ -359,7 +366,7 @@ dtype: int64
 										</code>
 									</pre>
 									<p style="margin-bottom: 1em;">
-										The final step before finalising the depent variable, <i>envtax</i> is to transform the categorical text data into categorical numerical data as below:
+										The final step before finalising the dependent variable, <i>envtax</i> is to transform the categorical text data into categorical numerical data as below:
 										<ul>
 											<li>Very willing (= 4)</li>
 											<li>Fairly Willing (= 3)</li>
@@ -369,7 +376,7 @@ dtype: int64
 									</p>
 									<pre>
 										<code>
-In [10]:
+In [9]:
 
 # creating a dictionary to assign numerically ordered values to the categorical answers
 encoding = {"envtax": {"very willing": 4, "fairly willing": 3, "not very willing": 2, "not at all willing": 1}}
@@ -377,26 +384,26 @@ encoding = {"envtax": {"very willing": 4, "fairly willing": 3, "not very willing
 envtax_table = envtax_table.replace(encoding)									
 										</code>
 									</pre>
-									<h5 style="font-size:1.15em">Treatment</h5>
+									<h5 style="font-size:1.15em">Independent Variable - Treatment</h5>
 									<p>
-										As mentioned, a random treatment was imposed in the “Environmental Tax” module which introduced an additional condition at the end of the question for subjects’ WTP (i.e. b, d, f, h):
+										As mentioned, a random treatment was imposed in the “Environmental Tax” module which introduced an additional condition at the end of the question for subjects’ Willingness To Pay environmental tax (i.e. b, d, f, h):
 										<blockquote>…, if the government reduced other taxes you pay by the same amount?</blockquote>
-										For simplicity, treatment will be seen as a direct reduction on proximate financial costs, which as mentioned, has motivated more participants to be more willing to pay environemtnal tax.
+										For simplicity, treatment will be seen as a direct reduction on proximate financial costs, which as mentioned, has motivated more participants to be more willing to pay.
 									</p>
 									<p style="margin-bottom: 1em;">
 										A dummy variable treatment is created with value = 1 for subjects who had received the treatment in question b, d, f, h; and = 0 otherwise.
 									</p>	
 									<pre>
 										<code>
-In [11]:
+In [10]:
 
-# define a funtion to count in the inputed row, 
+# define a funtion to count in the inputted row, 
 # how many columns from left to right have value "inapplicable" until a deviation is detected								
+# if the number of counts is equal to 2 or 4 or 6 or 8, assign 1 to the new variable, otherwise, assign 0
 def treat(col):
     value = "inapplicable"
     count = 0
     col_index = 0
-    treat = []
     while value == "inapplicable" and col_index < 9:
         value = col[col_index]
         count += 1
@@ -409,17 +416,17 @@ def treat(col):
         treatment = 0
     return treatment
 
-# define a function to apply treat to every row in the inputed dataframe
+# define a function to apply treat to every row in the inputted dataframe
 def treatment(df):
     df.loc[:, "treatment"] = df.apply(lambda col: treat(col), axis = 1)	
 
 # run treatment() on evtax_table
 treatment(envtax_table)
 
-# sample envtax_table 
+# take ten random samples from envtax_table 
 envtax_table.sample(10)
 
-Out [11]:
+Out [10]:
               g_envtax_a	  g_envtax_b	  g_envtax_c	  g_envtax_d	  g_envtax_e	  g_envtax_f	  g_envtax_g	  g_envtax_h	envtax	treatment
 pidp										
 1701842807	not very     	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	2	0
@@ -439,16 +446,1014 @@ pidp
                                                                                 willing
 										</code>
 									</pre>
-								</div>
-								
-									
-							</section>
+									<h5 style="font-size:1.15em">Independent Variable - Time Discounting</h5>
+									<p>
+										In the “Time Preference and Risk Aversion” module respondents were asked 6 sets of 12
+										questions based on hypothetical financial rewards with 10% chance of receiving an actual
+										payment for one of their choices to ensure genuine participation. Check Appendix B for full set of questions.
+									</p>	
+									<p>
+										In all 72 questions, respondents were asked to choose either receiving a Sooner & Smaller reward (hereafter <i>SS</i>) 
+										or a Later & Larger reward (hereafter <i>LL</i>) with 6 different timeframes in the form of <i>i_j</i>, specified in each set.
+										For <i>i</i> defines when would <i>SS</i> be received. Either in ‘near’ term (i.e. receive <i>SS</i> today: <i>i</i> = 0; grey line in illustration), or in ‘distant’ term (i.e. receive <i>SS</i>
+										with 1-month front end delay <i>i</i> = 1; dotted line in illustration); for <i>j</i> indicates the lag between <i>SS</i> and <i>LL</i>. To receive <i>LL</i> <i>j</i> month(s) after <i>SS</i>, 
+										where <i>j</i> = 1, 3 or 12; line span in illustration.
+									</p>
+									<img src="images/i_j.png" width="100%"; height=auto style="margin-bottom: 1em;"/>
+									<p>
+										The difference between Smaller and Larger reward are interpreted as compensation for waiting. (i.e. Range of compensation offered varies in proportion to lag length <i>j</i> as shown in Appendix B.)
+										The percentage difference in reward will be the compensation rate (hereafter <i>comp_rate</i>) offered in each question. For example, for Choice01 in <i>1_1</i>,
+										<blockquote>Between Option (A): Receiving £100 in 1 month and Option (B): Receiving £100.42 in 2 months, which option do you prefer?</blockquote>
+										if an individual preferred <i>SS</i>, <i>comp_rate</i> of 0.42% would be insufficient, and a higher <i>comp_rate</i> should be offered to compensate that individual for waiting 1 more month.
+									</p>
+									<p>
+										To deduce an individual’s valuation on waiting in each timeframe, however, the titration approach was adopted (Admur et al., 2015).
+										Within the same set of 12 questions, the amount of <i>LL</i> offered would increase marginally while keeping <i>SS</i> and <i>i_j</i> unchanged.
+										As <i>comp_rate</i> increases, respondents were expected to switch from choosing <i>SS</i> to <i>LL</i> eventually (Kirby et al., 1999). 
+									</p>
+									<p>
+										Hence, if an individual chose <i>SS</i> for Choice01 (<i>comp_rate</i> of 0.42% for waiting 1 month) but preferred <i>LL</i> for Choice02 (<i>comp_rate</i> of 0.83% for waiting 1 month), 
+										there should be a <i>comp_rate</i> between 0.42% to 0.83% that makes the individual indifferent between <i>SS</i> and <i>LL</i>.
+										For computation, I will speculate the preferred <i>comp_rate</i> for each <i>i_j</i> at around the mid-point. (e.g. 0.83%/2)
+										Intuitively, <i>comp_rate</i> represents the minimum compensation rate or the time discount rate required to convince that individual to wait for a specific timeframe.
+									</p>
+									<p style="margin-bottom: 1em;">Six dataframes <i>periodi_j</i> were created to correspond with each timeframe.
+									</p>
+									<pre>
+										<code>
+In [11]:											
 
-						
+# filter the columns in g_indresp by RegEx to create six new dataframes											
+period1_2 = g_indresp.filter(regex = 'g_choice0[1-9]|g_choice1[0-2]', axis = 1)
+period1_4 = g_indresp.filter(regex = 'g_choice1[3-9]|g_choice2[0-4]', axis = 1)
+period1_13 = g_indresp.filter(regex = 'g_choice2[5-9]|g_choice3[0-6]', axis = 1)
+period0_1 = g_indresp.filter(regex = 'g_choice3[7-9]|4[0-8]', axis = 1)
+period0_3 = g_indresp.filter(regex = 'g_choice49|g_choice5[0-9]|g_choice60', axis = 1)
+period0_12 = g_indresp.filter(regex = 'g_choice6[1-9]|g_choice7[0-2]', axis = 1)
+
+# create a list referring to the six new dataframes
+period = [period1_2, period1_4, period1_13, period0_1, period0_3, period0_12]
+
+# take ten random samples from one of the six dataframes
+period0_1.sample(10)
+
+Out [11]:
+                  g_choice37	  g_choice38      g_choice39	  g_choice40	  g_choice41	  g_choice42	  g_choice43	  g_choice44	  g_choice45	  g_choice46	  g_choice47	  g_choice48
+pidp												
+1713817692	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable
+1700500491	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable
+1700141455	proxy	        proxy	        proxy       	proxy	        proxy	        proxy	        proxy	        proxy	        proxy	        proxy	        proxy	        proxy
+1720651652	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable
+1700360411	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable
+1701575567	option a:     	option a:    	option a:   	option b:       option b:       option b:       option b:       option b:       option b:       option b:       option b:       option b: 
+                receiving       receiving       receiving       receiving       receiving       receiving       receiving       receiving       receiving       receiving       receiving       receiving
+                �100 today     �100 today     �100 today      �101.67 in     �102.08 in     �102.50 in     �103.33 in      �104.17 in     �105 in         �106.67 in     �108.33 in     �112.50 in
+                                                                1 month         1 month         1 month         1 month         1 month         1 month         1 month         1 month         1 month
+1701491247	option a:       option a:       option a:     	option a:    	option a:       option a:       option a:       option a:       option b:       option b:       option b:       option b: 
+                receiving       receiving       receiving       receiving       receiving       receiving       receiving       receiving       receiving       receiving       receiving       receiving
+                �100 today     �100 today     �100 today     �100 today     �100 today      �100 today     �100 today      �100 today     �105 in         �106.67 in     �108.33 in     �112.50 in
+                                                                                                                                                1 month         1 month         1 month         1 month    
+1702475366	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable
+1721923246	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable
+1700544691	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable	inapplicable
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										As shown in the sampling above, some interviewees did not take part in this experiment module, hence, dropping them from the data:
+									</p>
+									<pre>
+										<code>
+In [12]:
+
+# identified  the rows with inaudible  values in g_choice01
+drop_index_choice = g_indresp[g_indresp["g_choice01"].str.contains("inapplicable|proxy")].index 
+
+# drop the identified rows by index in each six dataframes
+for df in period:
+    df.drop(drop_index_choice, inplace = True) 
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										Before I deduce the compensation rate, I have to transform all cells' value from a string e.g. option A: receiving �100 today, into a numeric value 100.
+										Then I will calculate the percentage difference between the first column with the second, the second column with the third, etc. 
+										until the percentage difference is higher than 0, so to halve that value and return a new variable <i>comp_rate</i>.
+									</p>
+									<pre>
+										<code>
+In [13]:
+
+# define a function to loop across every rows and columns in a dataframe to extract and replace with numeric values in the cell 
+def extract(df):
+    for col in range(df.shape[1]):
+        for row in range(df.shape[0]):
+            cell = df.iloc[row, col]
+            number = re.findall(r"-?\d+\.?\d*", cell)
+            df.iat[row, col] = number[0]
+
+# define a function, comp_cal(), that apply the rate formula on the first and second column, the second and third column, etc. until rate is no longer 0
+def comp_cal(col):
+    comp = 0
+    col_index = 0
+    rate = (lambda now, later: (later - now)/(now*2))
+    while comp == 0 and col_index < 11:
+        comp = rate(float(col[col_index]), float(col[col_index + 1]))
+        col_index += 1
+    return comp
+
+# define a function to apply the comp_cal() to each row in a dataframe 	
+def compensation(df):
+    df.loc[:, "comp_rate"] = df.apply(lambda col: comp_cal(col), axis = 1)
+
+# apply extract() and compensation() to each dataframe in period
+for df in period:
+    extract(df)
+    compensation(df)
+
+# take ten random samples from one of the six dataframes
+period0_1.sample(10)
+
+Out [13]:
+            g_choice37  g_choice38  g_choice39  g_choice40  g_choice41  g_choice42  g_choice43  g_choice44  g_choice45  g_choice46  g_choice47  g_choice48  comp_rate
+pidp													
+1700163887  100	        100	    100	        100	    100         100	    100	        100	    100	        100         100	        100         0.0000
+1701108411  100	        100	    100	        100	    100         100	    100	        100	    105      	106.67	    108.33      112.50	    0.0250
+1701429367  100	        100	    100	        100	    100         100	    100         104.17      105	        106.67	    108.33      112.50	    0.0209
+1701672807  100	        100	    100	        100	    100         100	    100	        100	    100	        100         100	        100         0.0000
+1701704771  100	        100	    100	        100	    100         100	    100         104.17      105	        106.67	    108.33      112.50	    0.0209
+1700476007  100	        100	    100	        100	    100         100	    100	        100	    100	        100         100	        100         0.0000
+1700864967  100	        100	    100	        100	    100         100	    100	        100	    100	        100         100	        100         0.0000
+1701575567  100         100         100         101.67      102.08	102.50	    103.33	104.17      105         106.67      108.33	112.50      0.0084
+1723181246  100	        100	    100	        100	    100         100	    100	        100	    100	        100         100	        100         0.0000
+1700096567  100	        100	    100	        100	    100         100	    100	        100	    100	        100         100	        100         0.0000									
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										But for respondents who persisted in <i>SS</i> throughout, the above mechanism would be inapplicable as their compensation required lay above the highest offered in the 12th question in the set. 
+										Hence, those with discount rate exceeded the upper bound of the experimental design, would have comp_rate estimated at the upper bound.
+									</p>
+									<pre>
+										<code>
+In [14]:
+
+# create lists referring to the corresponding periods dataframes with different lag length
+period1 = [period0_1, period1_2]
+period3 = [period0_3, period1_4]
+period12 = [period0_12, period1_13]
+
+# replace the comp_rate for those respondents who persisted in SS with the upper bound
+for df in period1:
+    df.comp_rate.replace(0,0.1250, inplace = True)
+for df in period3:
+    df.comp_rate.replace(0,0.3750, inplace = True)
+for df in period12:
+    df.comp_rate.replace(0,1.5000, inplace = True)
+
+# take five random samples from one of the six dataframes
+period0_1.sample(5)
+
+Out [14]:
+            g_choice37  g_choice38  g_choice39  g_choice40  g_choice41  g_choice42  g_choice43  g_choice44  g_choice45  g_choice46  g_choice47  g_choice48  comp_rate											
+pidp													
+1722888846  100	        100	    100	        100	    100         100	    103.33      104.17      105         106.67      108.33      112.50      0.01665
+1700532447  100	        100	    100	        100	    100         100	    100	        100	    100	        100         100	        100         0.1250
+1700061891  100	        100	    100	        100	    100         100	    100	        100	    100	        100         100	        100         0.1250
+1721046046  100	        100	    100	        100	    100         100	    100	        100	    100	        100         100	        100         0.1250
+1700577331  100	        100	    100	        100	    100         100	    100	        100	    100	        100         100	        112.50      0.0625
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										After deducing <i>comp_rate</i> in each period, I will consolidate them into a new dataframe, <i>comp</i>, as below:
+									</p>
+									<pre>
+										<code>
+In [15]:
+
+# create a new list with items to be referenced as names of the new columns 
+comp_list = ["comp1_2", "comp1_4", "comp1_13", "comp0_1", "comp0_3", "comp0_12"]
+
+# create an empty dictionary for later 
+comp_dic = {}
+
+# by zipping the two reference lists, comp_list and period
+# items in the two lists are looped to fill in the new dictionary
+for x, y in list(zip(comp_list, period)):
+    comp_dic[x] = y.loc[:,"comp_rate"]
+
+# use the dictionary to create a new dataframe, comp
+comp = pd.DataFrame(comp_dic)
+
+# take five random samples from comp
+comp.sample(5)
+
+Out [15]:
+            comp1_2     comp1_4     comp1_13   comp0_1     comp0_3     comp0_12
+pidp						
+1700325727  0.006250    0.050000    0.15000    0.004150    0.025000    0.10000
+1700855447  0.008350    0.031250    0.10000    0.016650    0.025000    0.05000
+1700638527  0.002041    0.006173    0.02381    0.002041    0.006173    0.02381
+1723541646  0.020850    0.006173    0.02381    0.062500    0.075000    0.20000
+1721046046  0.125000    0.375000    1.50000    0.125000    0.375000    1.50000
+
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										The sample mean E(.) and sample standard deviation σ(.) as shown:
+									</p>
+									<pre>
+										<code>
+In [16]:
+
+comp.agg(['mean','std'])
+
+Out [16]:
+        comp1_2     comp1_4     comp1_13    comp0_1     comp0_3     comp0_12
+mean    0.062949    0.170676    0.540580    0.069469    0.169673    0.468039
+std     0.053565    0.157790    0.580647    0.051519    0.153347    0.557025
+										</code>
+									</pre>		
+									<p style="margin-bottom: 1em;">
+										To test <i>H1</i>, it would be impractical to separately regress <i>comp_rate</i> in each dataframe with different rate ranges across lag lengths against the envtax.
+										Therefore, a continuous independent variable, standardised compensation rate (<i>std_comp</i>) is created by firstly obtaining subjects’ standard score for each comp_rate as compared with the sample mean in that timeframe.
+										Next, take a simple average of all six standard scores to construct an <i>i_j</i> averaging proxy which should reflect the general compensation rate of a subject relative to the sample (Ikeda, et al. 2010).
+										$$std\_comp = \frac{1}{6}\sum_{i=0,1}\sum_{j=1,3,12} \frac{comp_{i\_j}-E(comp_{i\_j})}{\sigma(comp_{i\_j})}$$
+									</p>
+									<pre>
+										<code>
+In [17]:
+
+#
+for col in comp_list:
+    comp[col] = StandardScaler().fit_transform(comp[[col]])
+
+#
+comp["std_comp"] = comp.iloc[:, 0:6].sum(1)/6
+
+Out [17]:
+            comp1_2     comp1_4     comp1_13    comp0_1     comp0_3     comp0_12    std_comp
+pidp							
+1701061487  -0.008391   -0.448343   1.653927    1.078909    1.340265    1.854421    0.911798
+1700740531  -0.008391   -0.765526   -0.802604   -0.135404   -0.781161   -0.751210   -0.540716
+1701289967  -1.138181   -1.043551   -0.890851   -1.310053   -1.067241   -0.798274   -1.041358
+1722916086  -0.709154   -0.765526   -0.500925   -0.863991   -0.781161   -0.661361   -0.713686
+1725282526  1.159547    1.296167    1.653927    -1.310053   -1.067241   -0.798274   0.155679
+										</code>
+									</pre>
+									<h5 style="font-size:1.15em">Independent Variable - Time Preference</h5>
+									<p>
+										Subjects’ time preference are categorised by comparing their timeframe specific <i>comp_rate</i> in ‘near’ term (i.e. <i>i</i> = 0) and in ‘distant’ term (i.e. <i>i</i> = 1) of the same lag <i>j</i>. 
+									</p>
+									<p>
+										Firstly, if an individual required more compensation for postponing a reward today than postponing a reward with a front-end delay of the same lag (i.e. <i>comp0_j</i> > <i>comp1_j</i>),
+										that individual would be subjected to "present-bias". Meaning the subject would give higher priority to events closer in time.
+									</p>
+									<p>
+										Secondly, if <i>comp0_j</i> < <i>comp1_j</i>, the subject would be categorised as future-biased whose time discount rate increases with time and would put higher weight on distant events.
+										Takeuchi (2011) found the majority of his observations were "future-biased", represented by an inverse shaped discount function. 
+									</p>
+									<p>
+										Thirdly, if <i>comp0_j</i> = <i>comp1_j</i>, , the subject would value near and distant events with a time "consistent" preference,
+										hence, required the same compensation for postponing rewards today or postponing rewards with a front-end delay if the lag length were the same.
+									</p>
+									<p style="margin-bottom: 1em;">
+										Lastly, in cases when respondents had persistently preferred <i>SS</i> in any set, with <i>comp_rate</i> assumed at
+										upper bound, their corresponding time preference would be unidentifiable, namely “unidentifiable".
+									</p>
+									<pre>
+										<code>
+In [18]:
+
+# create another dataframe, time, with comp_dic in In [16]
+time = pd.DataFrame(comp_dic)
+
+# create a new variable for j = 1 and assign value with the logical arguments presented above
+time["time_1"] = np.where(time["comp1_2"] < time["comp0_1"], "pre_bi", np.where(time["comp1_2"] > time["comp0_1"], "fut_bi", np.where((time["comp1_2"] == time["comp0_1"]) & (time["comp0_1"] == 0.125), "unidentifiable", "con")))
+
+# create a new variable for j = 3 and assign value with the logical arguments presented above
+time["time_3"] = np.where(time["comp1_4"] < time["comp0_3"], "pre_bi", np.where(time["comp1_4"] > time["comp0_3"], "fut_bi", np.where((time["comp1_4"] == time["comp0_3"]) & (time["comp0_3"] == 0.375), "unidentifiable", "con")))
+
+# create a new variable for j = 12 and assign value with the logical arguments presented above
+time["time_12"] = np.where(time["comp1_13"] < time["comp0_12"], "pre_bi", np.where(time["comp1_13"] > time["comp0_12"], "fut_bi", np.where((time["comp1_13"] == time["comp0_12"]) & (time["comp0_12"] == 1.5), "unidentifiable", "con")))
+
+# take five random samples from time
+time.sample(5)
+
+Out [18]:
+            comp1_2     comp1_4     comp1_13 comp0_1    comp0_3    comp0_12 time_1    time_3    time_12
+pidp									
+1700361771  0.012500    0.025000    0.125    0.062500    0.0500    0.075    pre_bi    pre_bi    fut_bi
+1701527967  0.002041    0.012500    0.050    0.002041    0.0125    0.050    con       con       con
+1700399847  0.002041    0.006173    0.125    -0.002091   0.1875    0.250    fut_bi    pre_bi    pre_bi
+1726615246  0.025000    0.050000    0.125    0.033350    0.0625    0.150    pre_bi    pre_bi    pre_bi
+1700238007  -0.002091   0.375000    1.500    0.125000    0.3750    1.500    pre_bi    unidentifiable	unidentifiable
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										After applying the logical arguments to identify participants'time preferences in each lag length <i>j</i>,
+										only the relevant columns in the dataframe, <i>time</i>, would be left for simplicity:
+									</p>
+									<pre>
+										<code>
+In [19]:
+
+# create an empty column, time_pre, for later
+time["time_pre"] = ""
+
+# select specific columns from the dataframe
+time = time[["time_1", "time_3", "time_12", "time_pre"]]
+
+# take another five random samples from the updated time dataframe
+time.sample(5)
+
+Out [19]:
+            time_1  time_3  time_12  time_pre
+pidp				
+1723779646  pre_bi  unidentifiable  unidentifiable	
+1700776567  fut_bi  fut_bi  con	
+1700001367  fut_bi  con     con	
+1726771646  pre_bi  fut_bi  fut_bi	
+1700243447  fut_bi  fut_bi  fut_bi	
+
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										Accordingly, all respondents would have three time preference labels for each lag length <i>j</i> of either
+										"present-bias", "futture-bias", "consistent", "unidentifiable". The count by category is summarised in the pivot table below:
+									</p>
+									<pre>
+										<code>
+In [20]:
+
+# create a pivot table that count the occurence of each value divided by time_1, time_3 and time_12
+table = time.pivot_table(index = ['time_1'], columns=['time_3','time_12'], aggfunc='count')
+
+# call out the pivot table
+table
+
+Out [20]:
+time_pre
+time_3	          con                   fut_bi                                    pre_bi	                                unidentifiable
+time_12	          con   fut_bi  pre_bi     con   fut_bi  pre_bi  unidentifiable      con   fut_bi   pre_bi   unidentifiable    con    fut_bi    pre_bi    unidentifiable
+        time_1															
+           con   30.0     14.0     4.0     5.0     15.0     6.0             1.0      6.0      6.0      2.0              1.0    1.0       1.0       1.0    NaN
+        fut_bi	  8.0     11.0     NaN     7.0     36.0     5.0             1.0      2.0     12.0      6.0              1.0    1.0       2.0       2.0    2.0
+        pre_bi	  6.0     14.0     7.0     5.0     25.0     3.0             NaN     11.0     35.0     31.0              7.0    2.0       4.0       3.0    11.0
+unidentifiable	  3.0      5.0     2.0     5.0     19.0     3.0             NaN      6.0      4.0      3.0              3.0   15.0      22.0      13.0    62.0
+
+										</code>								
+									</pre>
+									<p style="margin-bottom: 1em;">
+										Although ideally, the three	labels should be coherent to demonstrate a comprehensible general time preference, deviation were observed in most subjects.
+										As empirical researches rarely evaluate time preferences with three different lag lengths, regrettably, original assumptions have to be made to relax the grouping criteria.
+										<ul>
+											<li>For the weakly coherent scenario, if any two of the three labels are the same, the majority
+												would be adopted as the general time preference. </li>
+											<li>For the weakly identifiable scenario, if any two labels are "unidentifiable", the remaining
+												identifiable one will be deemed as the general time preference.</li>
+										</ul>
+									</p>
+									<pre>
+										<code>
+In [21]:
+
+# create a new column, time_pre, and loop through all rows to fill the cell value defined by the criteria above
+pre = ["con", "pre_bi", "fut_bi"]
+for pre in pre:
+    for i in time.index:
+        if time.loc[i, "time_1"] == pre and time.loc[i, "time_3"] == pre:
+            time.loc[i, "time_pre"] = pre
+        elif time.loc[i, "time_1"] == pre and time.loc[i, "time_12"] == pre:
+            time.loc[i, "time_pre"] = pre
+        elif time.loc[i, "time_3"] == pre and time.loc[i, "time_12"] == pre:
+            time.loc[i, "time_pre"] = pre
+        elif time.loc[i, "time_1"] == pre and time.loc[i, "time_3"] == "unidentifiable" and time.loc[i, "time_12"] == "unidentifiable":
+            time.loc[i, "time_pre"] = pre
+        elif time.loc[i, "time_1"] == "unidentifiable" and time.loc[i, "time_3"] == "unidentifiable" and time.loc[i, "time_12"] == pre:
+            time.loc[i, "time_pre"] = pre
+        elif time.loc[i, "time_1"] == "unidentifiable" and time.loc[i, "time_3"] == pre and time.loc[i, "time_12"] == "unidentifiable":
+            time.loc[i, "time_pre"] = pre
+        else:
+            continue
+
+# assign the value "unidentiable" to those empty cells
+for i in time.index:
+    if time.loc[i, "time_pre"] == "":
+        time.loc[i, "time_pre"] = "unidentifiable"
+
+# take another five random samples from the updated time dataframe
+time.sample(5)
+
+Out [21]:
+            time_1          time_3          time_12         time_pre
+pidp				
+1700992127  pre_bi          unidentifiable  unidentifiable  pre_bi
+1700914611  unidentifiable  unidentifiable  unidentifiable  unidentifiable
+1701338943  unidentifiable  con	            con             con
+1700157091  pre_bi          pre_bi          fut_bi          pre_bi
+1701673495  fut_bi          fut_bi          con             fut_bi
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										After deducing a time preference for each subjects, dummy variables (i.e. with value = 1 if the subject fits the category; otherwise value = 0) 
+										are created for later regression. Observations with "unidentifiable" time preference will be dropped.
+									</p>
+									<pre>
+										<code>
+In [22]:
+
+# break down the column, time_pre, in which categorical values are used to create new columns with dummy values 
+time = pd.get_dummies(time, prefix = "t", prefix_sep = "_", columns = ["time_pre"])
+
+# drop the rows with unidentifiable time_pre
+time.drop( time[(time["t_unidentifiable"] == 1) ].index , inplace=True)
+
+# take another five random samples from the updated time dataframe
+time.sample(5)
+
+Out [22]:
+            time_1          time_3          time_12   t_con   t_fut_bi   t_pre_bi   t_unidentifiable
+pidp							
+1725792446  pre_bi          pre_bi          fut_bi    0       0          1          0
+1700582767  unidentifiable  fut_bi          fut_bi    0       1          0          0
+1723262966  unidentifiable  unidentifiable  con       1       0          0          0
+1724670486  con             pre_bi          pre_bi    0       0          1          0
+1700238687  unidentifiable  unidentifiable  pre_bi    0       0          1          0
+										</code>
+									</pre>
+									<h5 style="font-size:1.15em">Independent Variable - Environmental Morale</h5>							
+									<p style="margin-bottom: 1em;">
+										It is believed that the higher an individual’s environmental morale, the more often environmentally friendly behaviour would be conducted,
+										and the more likely environmental tax would be supported by the individual. 
+										Hence, the “Environmental Behaviour and Attitude” module is used to measure if subjects would derive intrinsic values from protecting the environment.
+									</p>									
+									<pre>
+										<code>
+In [23]:
+
+# filter the columns in g_indresp by RegEx to create a new dataframe
+envhabit = g_indresp.filter(regex = 'g_envhabit[2,4-9]', axis = 1)
+
+# drop the rows with unidentifiable envhabit
+envhabit.drop(envhabit[~envhabit.g_envhabit2.isin(["always", "very often", "quite often", "not very often", "never", "n/a, can't do this", "don't know"])].index , inplace=True)
+
+# take five random samples from the updated time dataframe
+envhabit.sample(5)
+
+Out [23]:
+ 
+            g_envhabit2    g_envhabit4    g_envhabit5    g_envhabit6    g_envhabit7    g_envhabit8    g_envhabit9
+pidp							
+1700539927  never          always         never          never          always         quite often    quite often
+1701822411  very often     very often     never          very often     always         never          never
+1700975807  always         very often     never          not very often never          not very often quite often
+1700870411  always         quite often    quite often    very often     always         not very often never
+1721365686  quite often    very often     not very often quite often    not very often quite often    never
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										With reference to Barile et al. (2015), a continuous independent variable, 
+										Environmental Habit Index <i>envhabit</i>, is created by firstly assigning ordered numeric values to subjects’ self-reported frequency of performing different pro-environment habits with “Always” = 5 to “Never” = 1,
+										then taking the simple average of the aggregated values as follow:
+									</p>
+									<pre>
+										<code>
+In [24]:
+
+# creating new columns reflecting the self-assigned numeric values of their corresponding answers to different environmental habits
+new_col = ["envhabit_2", "envhabit_4", "envhabit_5", "envhabit_6", "envhabit_7", "envhabit_8", "envhabit_9"]
+new_index = 0
+for name in envhabit.columns:
+    score = []
+    for participant in envhabit[name]:
+        if participant == "always":
+            score.append(5)
+        elif participant == "very often":
+            score.append(4)
+        elif participant == "quite often":
+            score.append(3)
+        elif participant == "not very often":
+            score.append(2)
+        else:
+            score.append(1)
+    envhabit[new_col[new_index]] = score
+    new_index += 1
+
+# taking simple average on the newly created columns with numeric values
+envhabit["envhabit"] = envhabit.iloc[:, 7:14].sum(1)/7
+
+# take another five random samples from the updated time dataframe
+envhavit.sample(5)
+
+Out [24]:
+            g_envhabit2    g_envhabit4    g_envhabit5    g_envhabit6    g_envhabit7    g_envhabit8    g_envhabit9    envhabit_2    envhabit_4    envhabit_5    envhabit_6    envhabit_7    envhabit_8    envhabit_9    envhabit
+pidp															
+1720916846  very often     very often     quite often    very often     always         never          never          4             4             3             4             5             1             1             3.142857
+1719108092  quite often    quite often    never          don't know     always         quite often    not very often 3             3             1             1             5             3             2             2.571429
+1724725006  always         very often     never          very often     never          not very often never          5             4             1             4             1             2             1             2.571429
+1700861567  always         quite often    never          never          very often     very often     very often     5             3             1             1             4             4             4             3.142857
+1701103651  always         not very often not very often not very often quite often    always         always         5             2             2             2             3             5             5             3.428571
+
+										</code>
+									</pre>
+									<h5 style="font-size:1.15em">Demographics</h5>
+									<p style="margin-bottom: 1em;">
+										Another dataset, g_indall, containing background information of each participant is imported to extract their corresponding age and gender.
+									</p>
+									<pre>
+										<code>
+In [25]:
+
+# read the .xls document with the first column being the Index
+g_indall = pd.read_excel("g_indall_ip.xls", index_col = 0)
+
+# create a dataframe by filtering relevenat columns from g_indall
+other = g_indall.filter(regex = 'g_agegr10_dv|g_sex', axis = 1)
+
+# identify and count the values in g_sex and g_agegr10_dv
+other.g_sex.value_counts()
+other.g_agegr10_dv.value_counts()
+
+Out [25]:
+
+female        1870
+male          1749
+missing          1
+don't know       1
+Name: g_sex, dtype: int64
+
+50-59 years old      548
+40-49 years old      504
+60-69 years old      500
+10-19 years old      469
+70 years or older    411
+0-9 years old        396
+30-39 years old      395
+20-29 years old      361
+Missing               37
+Name: g_agegr10_dv, dtype: int64
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										As shown, there were some missing values which would be dropped from the observations.
+									</p>
+									<pre>
+										<code>
+In [26]:
+
+# dropping rows by index identified with missing values
+other.drop(other[other.g_sex.isin(["don't know","missing"])].index , inplace=True)
+other.drop(other[other.g_agegr10_dv.isin(["don't know","missing"])].index , inplace=True)
+
+# take five random samples from the updated dataframe
+other.sample(5)
+
+Out [26]:
+
+            g_sex    g_agegr10_dv
+pidp		
+1729110852  male    70 years or older
+1716422052  female  40-49 years old
+1700027891  male    60-69 years old
+1726452046  female  30-39 years old
+1719788132  male    0-9 years old
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										For later regression, two dummy variables <i>g_sex_male</i> and <i>g_sex_female</i> are created for identifying the gender of a respondent.
+										Also, in the questionnaire, participants were answering their age with bands of 10 years.
+										Hence, a speculation is made to assign the age value at the mid-point e.g. assigning 35 to participants answering g_agegr10_dv with "30-39 years old".										
+									</p>
+									<pre>
+										<code>
+In [27]:
+
+# creating two dummy variables from the value in g_sex with the prefix "_"
+other = pd.get_dummies(other, prefix_sep = "_", columns = ["g_sex"])
+
+# creating a dictionary and replace the keys with their corresponding values
+encoding = {"g_agegr10_dv": {"0-9 years old": 5, "10-19 years old": 15, "20-29 years old": 25, "30-39 years old": 35, "40-49 years old": 45, "50-59 years old": 55, "60-69 years old": 65, "70 years or older": 75}}
+other = other.replace(encoding)
+
+# take another five random samples from the updated dataframe
+other.sample(5)
+
+Out [27]:
+            g_agegr10_dv   g_sex_female   g_sex_male
+pidp			
+1701245099  5              0              1
+1700353607  35             1              0
+1701077127  65             0              1
+1721936886  65             1              0
+1731538492  75             1              0
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										After extracting the relevant columns into separate datasets and transformed with audible  numeric values, they are loaded into a new dataframe, <i>rae</i>.
+									</p>
+									<pre>
+										<code>
+In [28]:
+
+# creating a list of names of the dataframes created thus far
+data_frames = [envtax_table, comp, time, envhabit, other]
+
+# inner joining the datafames with names from the list by the common index value, pidp
+df = functools.reduce(lambda x, y: pd.merge(x, y, on = "pidp", how = "inner"), data_frames)
+
+# list out the columns in the new consolidated dataframe
+df.columns
+
+Out [28]:
+Index(['g_envtax_a', 'g_envtax_b', 'g_envtax_c', 'g_envtax_d', 'g_envtax_e',
+       'g_envtax_f', 'g_envtax_g', 'g_envtax_h', 'envtax', 'treatment',
+       'comp1_2', 'comp1_4', 'comp1_13', 'comp0_1', 'comp0_3', 'comp0_12',
+       'std_comp', 'time_1', 'time_3', 'time_12', 't_con', 't_fut_bi',
+       't_pre_bi', 't_unidentifiable', 'g_envhabit2', 'g_envhabit4',
+       'g_envhabit5', 'g_envhabit6', 'g_envhabit7', 'g_envhabit8',
+       'g_envhabit9', 'envhabit_2', 'envhabit_4', 'envhabit_5', 'envhabit_6',
+       'envhabit_7', 'envhabit_8', 'envhabit_9', 'envhabit', 'g_agegr10_dv',
+       'g_sex_female', 'g_sex_male'],
+      dtype='object')
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										From the list of columns above, select those that would be use in the regression.
+									</p>
+									<pre>
+										<code>
+In [29]:
+
+# create a new dataframe with columns from df
+rae = df[["envtax","treatment", "std_comp", "t_fut_bi", "t_pre_bi", "envhabit", "g_agegr10_dv", "g_sex_male"]]
+
+# take five random samples from the newly created dataframe
+rae.sample(5)
+
+Out [29]:
+            envtax   treatment   std_comp   t_fut_bi   t_pre_bi   envhabit   g_agegr10_dv   g_sex_male
+pidp								
+1700214211  1        0           -0.276368  0	       1          2.428571   55             1
+1724119646  4        1           -0.110438  1          0          3.428571   75             1
+1723310446  1        1           -0.377052  1          0          2.285714   65             1
+1701727207  3        1           -0.177028  1          0          2.285714   45             0
+1706126962  4        1           -0.996040  0          0          3.571429   25             0
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										After the extracting and transforming with <b>Python</b>, the dataset would be exported as a separate .csv file for later interpretation.
+									</p>
+									<pre>
+										<code>
+In [30]:	
+
+# exporting rae as a .csv file
+rae.to_csv(r"C:\Users\lauwi\Desktop\Data\Python\RAE\RAE.csv", index = True)
+										</code>
+									</pre>
+								</div>		
+							</section>
+							<section id="3.">
+								<div class="container">
+									<h4 style="margin-bottom: 1.2em; margin-top: -2.5em;">3. Visualisation & Summary</h4>
+									<p style="margin-bottom: 1em;">
+										But before we begin the regression in <b>R</b>, we are going to stick with <b>Python</b> to understand the data.
+									</p>
+									<pre>
+										<code>
+In [31]:
+
+# 
+rae.describe()
+
+Out [31]:
+        envtax      treatment      std_comp      t_fut_bi      t_pre_bi      envhabit      g_agegr10_dv      g_sex_male
+count   304.000000  304.000000     304.000000    304.000000    304.000000    304.000000    304.000000        304.000000
+mean    2.526316    0.496711       -0.213711     0.404605      0.355263      2.968985      52.993421         0.447368
+std     0.950576    0.500814       0.685276      0.491625      0.479382      0.600491      17.107309         0.498042
+min     1.000000    0.000000       -1.041358     0.000000      0.000000      1.000000      15.000000         0.000000
+25%     2.000000    0.000000       -0.827215     0.000000      0.000000      2.571429      45.000000         0.000000
+50%     3.000000    0.000000       -0.358651     0.000000      0.000000      3.000000      55.000000         0.000000
+75%     3.000000    1.000000       0.302730      1.000000      1.000000      3.321429      65.000000         1.000000
+max     4.000000    1.000000       1.181721      1.000000      1.000000      4.857143      75.000000         1.000000
+
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										As described from the table above, only 304 observations left after dropping those missing or inaudible entries.
+										The average age of the remaining samples is 53 years old with 45% being male.
+										Moreover, exactly half of the observations had received the treatment in the "Environment Tax" module which was meant to be randomly assigned to interviewees.
+										This might imply my active filtering does not alter much of the sample population distribution.
+									</p>
+									<pre>
+										<code>
+In [32]:
+
+envtax = ["Very Willing\n(=4)", "Fairly Willing\n(=3)", "Not Very Willing\n(=2)", "Not At All Willing\n(=1)"]
+xpos = np.arange(len(envtax))
+
+plt.bar(xpos-0.2, rae.envtax.value_counts().sort_index(ascending=False), width=0.4, color = "#1d58a7d8", label="Overall")
+plt.bar(xpos+0.2, rae[rae["treatment"] == 1].envtax.value_counts().sort_index(ascending=False), width=0.4, color = "#4aa6ca", label="Treatment")
+
+plt.xticks(xpos, envtax, rotation = "350")
+plt.ylabel("No. of Respondents")
+plt.title("How willing would you be to pay higher taxes in order to protect the environment?")
+plt.legend()
+										</code>
+									</pre>
+									<img src="images/envtax.png" width="70%"; height=auto style="margin-bottom: 1em;"/>
+									<p style="margin-bottom: 1em;">
+										As shown in the diagram above, the majority of participants chose fairly willing (=3) to pay higher taxes to protect the environment regardless of settings.
+										But with the treatment, participants are more likely to be very willing to pay (=4) and less likely to give a negative responses (=1 or =2) echoing Jagers et al. (2019).
+									</p>
+									<pre>
+										<code>
+In [33]:
+
+plt.hist([rae.std_comp, rae[rae["t_fut_bi"] == 1].std_comp, rae[rae["t_pre_bi"] == 1].std_comp, rae[(rae["t_fut_bi"] == 0) & (rae["t_pre_bi"] == 0)].std_comp], rwidth=0.8, bins =15, color = ["#34495E","#ABB3B9","#2980B9","#4aa6ca"], label = ["overall","fut_bi","pre_bi","con"])
+plt.xlabel("Standardised Compenstation Rate (std_comp)")
+plt.ylabel("No. of Respondents")
+plt.title("Distribution of Respondents' Deduced Compensation Rate")
+plt.legend()
+
+										</code>
+									</pre>
+									<img src="images/time.png" width="70%"; height=auto style="margin-bottom: 1em;"/>
+									<p style="margin-bottom: 1em;">
+										It is noticeable that respondents' standardised compensation rate are concentrated at the lower end, 
+										especially for those with consistent time preference whose <i>std_comp</i> are mostly accumulated at the lowest bound.
+										This would suggest future experiments to expect participants to be more sensitive to time discounting.
+									</p>
+									<pre>
+										<code>
+In [34]:
+
+plt.hist(rae.envhabit, bins=15, histtype = "step")
+plt.xlabel("Environemental Habbit Index")
+plt.ylabel("No. of Respondents")
+plt.title("How often do you personally do each of the following environmental habbit... \n from “Always” = 5 to “Never” = 1")
+										</code>
+									</pre>
+									<img src="images/envhabit.png" width="70%"; height=auto style="margin-bottom: 1em;"/>
+									<p style="margin-bottom: 1em;">
+										The data also demonstrated subjects' attitudes towards environmentally friendly behaviour are resembling a normal distribution.
+										Meaning, the majority are not having strong opinion on the subject matter with a few outliners on both ends. 
+									</p>
+									<pre>
+										<code>
+In [35]:
+
+envtax = ["Very Willing\n(=4)", "Fairly Willing\n(=3)", "Not Very Willing\n(=2)", "Not At All Willing\n(=1)"]
+xpos = np.arange(len(envtax))
+
+plt.bar(xpos-0.2, rae[rae["g_sex_male"] == 1].envtax.value_counts().sort_index(ascending=False), width=0.4, color = "#85C1E9", label="Male")
+plt.bar(xpos+0.2, rae[rae["g_sex_male"] == 0].envtax.value_counts().sort_index(ascending=False), width=0.4, color = "#F1948A", label="Female")
+
+plt.xticks(xpos, envtax, rotation = "350")
+plt.ylabel("No. of Respondents")
+plt.title("How willing would you be to pay higher taxes in order to protect the environment?")
+plt.legend()
+										</code>
+									</pre>
+									<img src="images/sex.png" width="70%"; height=auto style="margin-bottom: 1em;"/>
+									<p style="margin-bottom: 1em;">
+										Although female consists of 55% of the sample, it is noted that more male respondents are having stronger preference on the question (i.e. chose either =1 or =4).										
+									</p>
+									<pre>
+										<code>
+In [36]:
+
+plt.hist(rae.g_agegr10_dv, bins=len(rae.g_agegr10_dv.value_counts()), histtype = "stepfilled")
+plt.xlabel("Age")
+plt.ylabel("No. of Respondents")
+plt.title("Distribution of Respondents' age")
+										</code>
+									</pre>
+									<img src="images/age.png" width="70%"; height=auto style="margin-bottom: 1em;"/>
+									<p style="margin-bottom: 1em;">
+										It is also not surprising to see the age of participants in the experiments are relatively senior given it requires high commitment and would be suitable of retired people.
+									</p>
+								</div>
+							</section>
+							<section id="4.">
+								<div class="container">
+									<h4 style="margin-bottom: 1.2em; margin-top: -2.5em;">4. Results</h4>
+									<p>
+										As demonstrated in previous sessions, <i>envtax</i>, the dependent variable is with ordinal numeric values from 1 to 4 to represent respondents' willingness to pay environmental tax, 
+										Ordinary Least Squares (OLS) may no longer provides the best (BLU) estimate (McKelvey and Zavoina, 1975). 
+										Contrarily, ordinal regression selects the model with the highest maximum likelihood in explaining the underlining <a href='https://en.wikipedia.org/wiki/Logistic_regression#Latent_variable_interpretation'>latent variable</a>, <i>envtax*</i>, 
+										which is invisible and continuous to represent the discrete <i>envtax</i> (Winship and Mare, 1984). 
+									</p>					
+									<p style="margin-bottom: 1em;">
+										However, after throughout search in the internet, the only module in <b>Python</b> that support Ordinary regression, statsmodels 0.13.0.div0, is still at development stage.
+										I have no choice but turn to the other statistical oriented programming language, R.
+										Therefore, from now on I will be switching from <b>Python</b> to <b>R</b> for running ordered regressions to test my hypotheses in session 1.
+									</p>
+									<pre>
+										<code>
+In [37]:
+
+# read the previously exported .csv file
+csv <- read.csv("C:/Users/lauwi/Desktop/Data/Python/RAE/RAE.csv")
+
+# check the first six rows in the dataset
+head(csv)
+
+Out [37]:
+        pidp envtax treatment std_comp t_fut_bi t_pre_bi envhabit g_agegr10_dv 
+1 1700000687      3         1     0.88        1        0      1.9           65
+2 1700001367      4         0    -1.00        0        0      3.7           75
+3 1700002059      3         0     1.18        0        1      2.7           25
+4 1700002067      3         1    -0.52        0        1      2.1           25
+5 1700015651      4         1     0.85        0        1      4.3           35
+6 1700017007      1         0     1.03        0        1      3.1           75
+  g_sex_male
+1          0
+2          0
+3          0
+4          0
+5          0
+6          0
+										
+										</code>
+									</pre>
+									<p style="margin-bottom: 1em;">
+										The command, <b>polr</b> (i.e. Proportional Odds Logistics Regression) from the <b>MASS</b> package will be used.
+									</p>
+									<pre>
+										<code>
+In [38]:
+
+# install the MASS package
+require(MASS)
+require(foreign)
+
+# define the dependent variable, envtax, as ordered factor variable
+csv$envtax = factor (csv$envtax, levels =c("1", "2", "3", "4"), ordered = TRUE)
+
+# fit the ordered logistics model using polr function with Hess = True to return the Hessian information matrix 
+o_logit <- polr(formula = envtax ~ std_comp + treatment + t_fut_bi + t_pre_bi + envhabit + g_agegr10_dv + g_sex_male, data = csv, Hess = TRUE, method = "logistic")
+
+# call the summary statistics of the fitted ordered logistics model
+summary(o_logit, digits=3)	
+
+Out [38]:
+Call:
+polr(formula = envtax ~ std_comp + treatment + t_fut_bi + t_pre_bi +
+    envhabit + g_agegr10_dv + g_sex_male, data = csv, Hess = TRUE, 
+    method = "logistic")
+
+Coefficients:
+               Value Std. Error t value
+std_comp     -0.2286    0.16677  -1.371
+treatment     1.1910    0.22553   5.281
+t_pre_bi     -1.1402    0.30084  -3.790
+t_fut_bi     -0.4651    0.28731  -1.619
+envhabit      0.5377    0.18549   2.899
+g_agegr10_dv -0.0111    0.00644  -1.719
+g_sex_male   -0.1309    0.21891  -0.598
+
+Intercepts:
+    Value  Std. Error t value
+1|2 -0.729  0.650     -1.122
+2|3  0.626  0.646      0.969 
+3|4  3.021  0.672      4.495
+
+Residual Deviance: 730.05
+AIC: 750.05 
+										</code>
+									</pre>									
+									<p>
+										From Out [38], we can see the regression output including the intercepts and the corresponding coefficient, standard error, corresponding t-value of each independent variable.
+									</p>
+									<p>	
+										The estimated regression model for intercept "1|2", "2|3","3|4" could be written as:
+										$$Logit(\hat P(Y\le j)) = intercept_j - (-0.23)\ast std\_comp - 1.19\ast treatment - (-0.47)\ast t\_fut\_bi $$
+										$$- (-1.14)\ast t\_pre\_bi - 0.54\ast envhabit - (-0.01)\ast g\_agegr10\_dv - (-0.13)\ast g\_sex\_male$$
+									</p>	
+									<h5 style="font-size:1.15em">Interpretation - Intercepts</h5>
+									<p>
+										The intercept (a.k.a. cut-point) indicates where the latent variable, <i>envtax*</i>, is cut to divide the thresholds for each level of <i>envtax</i>.
+									</p>
+									<p>										
+										The cut-point "1|2" represents the log of odds (i.e. \(Logit(\hat P(Y\le 1))\) also as \(\log\frac{P(Y\le1)}{P(Y\gt2)}\) ) of an individual to be "Not at All Willing" to support environmental tax versus being "Not Very Willing", "Fairly Willing" or "Very Willing".
+									</p>
+									<p>
+										Similarly, "2|3" measures the log of odds (i.e. \(Logit(\hat P(Y\le 2))\) also as \(\log\frac{P(Y\le2)}{P(Y\gt3)}\) ) of an individual to be "Not at All Willing" or "Not Very Willing" to support environmental tax versus being "Fairly Willing" or "Very Willing".
+									</p>
+									<h5 style="font-size:1.15em">Interpretation - Significance</h5>
+									<p>
+										By default, there is no significance testing in <b>polr</b> which is why I am comparing the t-value and standard error to calculate the p-value with reference to <a href="https://stats.idre.ucla.edu/r/dae/ordinal-logistic-regression/">UCLA Statisitcal Consulting</a>.
+									</p>
+									<p style="margin-bottom: 1em;">
+										As p-value is to calculate the probability of obtaining an observation if the theory to be tested is invalid (e.g. the p-value of treatment measures how likely to see the extreme result if the treatment experiment was in fact a failure),
+										I am going to use the significance level of 0.1, meaning I will reject the output when it has more than 10% chance of being observed purely out of randomness.
+										For visibility, I will manually mark * in Out [39] for those rows of output with p-value less than 0.1; ** for those less than 0.05; and *** for less than 0.001.
+									</p>
+									<pre>
+										<code>
+In [39]:
+
+# store the coefficient table
+(ctable <- coef(summary(o_logit)))
+
+# calculate and store p-value
+p_logit <- pnorm(abs(ctable[, "t value"]), lower.tail = FALSE)*2
+
+# apending p_logit into ctable corrected to 4 decimal places
+(ctable <- cbind(ctable, "p value" = round(p_logit,4)))
+
+Out [39]:
+
+                  Value  Std. Error    t value p value
+std_comp     -0.2286350 0.166766341 -1.3709904  0.1704
+treatment     1.1910311 0.225525819  5.2811299  0.0000 ***
+t_pre_bi     -1.1402099 0.300843640 -3.7900417  0.0002 ***
+t_fut_bi     -0.4651368 0.287312202 -1.6189248  0.1055
+envhabit      0.5376822 0.185486482  2.8987677  0.0037 **
+g_agegr10_dv -0.0110683 0.006438106 -1.7191863  0.0856 *
+g_sex_male   -0.1309155 0.218906550 -0.5980430  0.5498
+1|2          -0.7289528 0.649592940 -1.1221687  0.2618
+2|3           0.6256457 0.645954072  0.9685607  0.3328
+3|4           3.0206391 0.672028873  4.4948056  0.0000
+										</code>
+									</pre>
+									<h5 style="font-size:1.15em">Interpretation - Coefficients</h5>
+									<p>
+										Since the output has been transformed with taking log odds, it would be difficult to interpret the coefficients.
+										For instance, participants who had received treatment would increase the expected value of envtax in log odds by 1.19 but what does it mean?
+									</p>
+									<p>	
+										So instead of drawing meanings from the magnitude, we could look into the direction of the coefficients to understand the correlation between <i>envtax</i> and the independent variables.
+										<ul>
+											<li style="margin-top: 1em;"><strong>std_comp</strong> - although the result is not statistically significant with p-value of 0.1704, the coefficient is negative which echoes our <b>Hypothesis 1</b> that “individuals’ discount rate would be negatively correlated with their support for environmental taxation”.</li>
+											<p style="margin-top: 1em;">Intuitively, the higher the discount rate, the lower the Net Present Value associated to future climate mitigation, and the less likely	an individual would trade off present consumptions for future well-being (US Environmental Protection Agency, 2010).</p>
+											<li><strong>treatment</strong> - as expected, the coefficient is significantly positive (p-value = 0.0000) meaning interviewees selected for treatment would be more likely to support environmental tax since the proposed financial cost were to be mitigated.</li>
+											<li style="margin-top: 1em;"><strong>t_pre_bi</strong> - the negative coefficient has successfully proved <b>hypothesis 2</b> with high significance (p-value = 0.0002) that “individuals with present-bias would be less likely to support environmental taxation than individuals with consistent time preference”.</li>
+											<p style="margin-top: 1em;"> In other words, subjects with present-bias would value more on approaching events such as consumption sacrificed for paying additional tax, and weight less on the distant utility like benefits of climate mitigation.</p>
+											<li><strong>t_fut_bi</strong> - among the few researches on future-bias in the field, individuals with such time-preference were assumed to behave in the opposite direction than those with present-bias. However, in this study, we can see the coefficient of <i>t_fut_bi</i> is also negative but insignificant (p-value = 0.1055). As of now, I will call this observation inconclusive and would worth further investigation.</li>
+											<li style="margin-top: 1em;"><strong>envhabit</strong> - unsurprisingly, the higher an individual’s environmental morale, the more often environmentally friendly behaviour would be conducted, and the more likely environmental tax would be supported (p-value = 0.0037).</li>
+											<li style="margin-top: 1em;"><strong>g_agegr10_dv</strong> - not the focus of this study, but the negative coefficient (p-value = 0.0856) might indicates younger generation would treat environmental measures more seriously.</li>
+											<li style="margin-top: 1em;"><strong>g_sex_male</strong> - with a p-value of 0.5498, gender probably has nothing to do with individuals' decision on paying environmental tax. Even if a correlation is observed, it would be out of randomness.</li>
+
+										</ul>
+								
+									</p>
+									<h5 style="font-size:1.15em">Interpretation - Visualisation</h5>
+									<p style="margin-bottom: 1em;">
+										An alternative approach to understand the correlations is by visualisations.
+									</p>
+									<pre>
+										<code>
+In [40]:
+
+# Install the R package for visualisation
+install.packages("effects")
+
+# call the R package
+library(effects)
+
+# plot the effect of t_pre_bi on envtax
+plot(Effect(focal.predictors = "t_pre_bi",o_logit))
+										</code>
+									</pre>
+									<img src="images/t_pre_bi.PNG" width="100%"; height=auto style="margin-bottom: 0em;"/>
+									<p style="margin-bottom: 1em;">
+										From the graph above, we can see participants with present-bias are less likely to be "Very Willing" (=4) and "Fairly Willing" (=3) to pay environmental tax; 
+										while more likely to be "Not Very Willing" (=2) and "Not At All Willing" (=1).
+									</p>
+									<pre>
+										<code>
+In [41]:
+
+# plot the effect of std_comp on envtax
+plot(Effect(focal.predictors = "std_comp",o_logit))
+										</code>
+									</pre>
+									<img src="images/std_comp.PNG" width="100%"; height=auto style="margin-bottom: 0em;"/>									
+									<p>
+										It is also obvious from above that individuals' preference to be "Very Willing" (=4) and "Fairly Willing" (=3) is decreasing with their rate of time discount but increasing with "Not Very Willing" (=2) and "Not At All Willing" (=1).
+									</p>
+								</div>
+							</section>	
 							<section id="5.">
 								<div class="container">
-									<h4 style="margin-bottom: 1.2em; margin-top: -2.5em;">5. Appendix</h4>
-									<h5>Appendix A1: Full Question Versions in “Environmental Tax” Module</h5>
+									<h4 style="margin-bottom: 1.2em; margin-top: -2.5em;">5. Last word</h4>
+									<p>
+										Although procrastinators (present-biased) would be less likely to support environmental tax is principally demonstrated, this is a simplified version of my undergrad dissertation.
+										The main purpose is to practice my <b>Python</b> and <b>R</b> programming so those technicality such as robustness checking the proportional odds assumption in the ordered logistics model are not presented.
+									</p>
+									<p>	
+										If you are interested, feel free to reach out for the full version of my work (got a solid first btw). In that dissertation I have not only compare the output with other analysis methods like Ordered Probit regression,
+										I have also checked the models' heteroskedasticity, parallel lines assumption, multicollinearity, goodness of fit and have justified my first hypothesis with a significant result (coefficient = -2.50; p-value = 0.012).
+									</p>
+									<p>
+										If you have made this far... thank you and stay tuned for more projects!
+									</p>
+								</div>
+							</section>						
+							<section id="6.">
+								<div class="container">
+									<h4 style="margin-bottom: 1.2em; margin-top: -2.5em;">6. Appendix</h4>
+									<h5>Appendix A: Full Question Versions in “Environmental Tax” Module</h5>
 									<ol>
 										<li>How willing would you be to pay higher taxes in order to protect the environment? </li>
 										<li>How willing would you be to pay higher taxes in order to protect the environment, <b>if the government reduced other taxes you pay by the same amount</b>?</li>
@@ -458,67 +1463,12 @@ pidp
 										<li>How willing would you be to pay higher taxes, if the government spent the extra money on protecting the environment <b> and reduced other taxes you pay by the same amount </b>?</li>
 										<li>How willing would you be to pay higher taxes, if the government promised it would spend the extra money on protecting the environment?</li>
 										<li>How willing would you be to pay higher taxes, if the government promised it would spend the extra money on protecting the environment <b> and reduce other taxes you pay by the same amount?</b></li>
-									</ol>
-									<h5>Appendix A2: Preventative Measures for constructing Dependent Variable</h5>
-									<p style="margin-bottom: 1em;">
-										As the original sample is already limited (N = ??), if answers from each setting were considered separately in five groups, the statistical power would be reduced and risk jeopardising the chance and accuracy of detecting the true result (Button, 2013). 
-										Regrettably, the difference in settings would be neglected as if respondents were all asked by either the baseline question (a) or baseline with an additional treatment (b). 
-										This is also approved by the experiment designer, Fairbrother (2017), that no significant deviations was found between baseline (a & b) and other qusetion versions (c & d & e & f & g & h).
-									</p>
-									<pre>
-										<code>
-In [6]:
-
-# 2-way Wald Test to check H0: b = d = f
-
-Out [6]:
-
-
-										</code>
-									</pre>
-									<p style="margin-bottom: 1em;">	
-										Moreover, the effect of treatment in the Primary sample were tested to be homogenous in most settings,
-										except in (g), conforming to Fairbrother (2017)’s conclusion that political distrust undermines tax compensation. 
-										Therefore, all subjects in setting (h) will be considered as without treatment (i.e. (g) = (h)).
-									</p>
-									<pre>
-										<code>
-In [6]:
-
-# 2-way Wald Test to check H0: a = c = e = g = h
-
-Out [6]:
-
-
-										</code>
-									</pre>
-									
+									</ol>	
+									<h5>Appendix B: Full Question Set in "Time Preference and Risk Aversion” Module</h5>
+									<img src="images/Choice01.PNG" width="100%"; height=auto style="margin-bottom: 0em;"/>
+									<img src="images/Choice02.PNG" width="100%"; height=auto style="margin-bottom: 0em;"/>						
 								</div>
 							</section>
-
-						<!-- 
-							<section id="four">
-								<div class="container">
-									<h3>Contact Me</h3>
-									<p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
-									<form method="post" action="#">
-										<div class="row gtr-uniform">
-											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
-											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
-											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
-											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
-											<div class="col-12">
-												<ul class="actions">
-													<li><input type="submit" class="primary" value="Send Message" /></li>
-													<li><input type="reset" value="Reset Form" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
-								</div>
-							</section>
-						-->
-					</div>
 
 				<!-- Footer -->
 					<section id="footer">
